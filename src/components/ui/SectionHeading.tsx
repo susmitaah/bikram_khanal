@@ -23,7 +23,7 @@ export function SectionHeading({ index, eyebrow, title, children, className }: S
         <span aria-hidden className="h-px w-10 bg-crimson/50" />
         <span className="uppercase">{t(eyebrow)}</span>
       </p>
-      <h2 className="font-display text-4xl leading-tight sm:text-5xl">{t(title)}</h2>
+      <h2 className="font-display text-4xl font-semibold leading-tight sm:text-5xl">{t(title)}</h2>
       {children && <div className="mt-5 text-lg leading-relaxed text-ink-soft">{children}</div>}
     </header>
   );

@@ -11,7 +11,7 @@ export function Footer() {
     <footer className="bg-ink py-12 text-paper/80">
       <Container className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="font-display text-2xl text-paper">
+          <p className="font-display text-2xl font-semibold text-paper">
             {t(site.honorific)} {t(site.name)}
           </p>
           <p className="mt-1 text-sm">

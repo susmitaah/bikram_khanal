@@ -15,7 +15,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-rule bg-paper">
       <Container className="flex h-16 items-center justify-between gap-4">
         <a href="#home" className="flex flex-col leading-tight" onClick={() => setOpen(false)}>
-          <span className="font-display text-xl">{t(site.name)}</span>
+          <span className="font-display text-xl font-semibold">{t(site.name)}</span>
           <span className="text-xs text-ink-mute">
             {t(site.role)} · {t(site.constituency)}
           </span>

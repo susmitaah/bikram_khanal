@@ -11,6 +11,9 @@
   --crimson-deep: #7d1014;
   --field: #3d5a2b;
   --harvest: #b7791f;
+
+  /* shadcn-style radius scale */
+  --radius: 0.625rem;
 }
 
 @theme inline {
@@ -25,8 +28,15 @@
   --color-field: var(--field);
   --color-harvest: var(--harvest);
 
-  --font-sans: var(--font-mukta), system-ui, sans-serif;
+  /* Geist for Latin glyphs; falls through to Mukta (which covers Devanagari)
+     for any character Geist doesn't have — keeps Nepali text intact. */
+  --font-sans: var(--font-geist-sans), var(--font-mukta), system-ui, sans-serif;
   --font-display: var(--font-newsreader), var(--font-serif-deva), Georgia, serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
 html {
@@ -42,6 +52,23 @@ body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* thin scrollbar, everywhere — never overridden per-component */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--rule);
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 ::selection {

@@ -59,7 +59,7 @@ export function Contact() {
 
         <div className="md:col-span-7">
           <div className="border border-rule bg-paper p-6 sm:p-8">
-            <h3 className="font-display text-2xl">{t(copy.formTitle)}</h3>
+            <h3 className="font-display text-2xl font-semibold">{t(copy.formTitle)}</h3>
             <p className="mt-1.5 text-sm text-ink-soft">{t(copy.formIntro)}</p>
             <div className="mt-6">
               <ContactForm />

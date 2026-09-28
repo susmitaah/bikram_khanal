@@ -28,7 +28,7 @@ export function Hero() {
 
           <h1
             className={cn(
-              "font-display font-medium text-[clamp(2.5rem,6.2vw,4.9rem)] tracking-tight",
+              "font-display font-semibold text-[clamp(2.5rem,6.2vw,4.9rem)] tracking-tight",
               lang === "en" ? "leading-[1.04]" : "leading-[1.3]",
             )}
           >

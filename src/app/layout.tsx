@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GeistSans } from "geist/font/sans";
 import { Mukta, Newsreader, Noto_Serif_Devanagari } from "next/font/google";
 import { HtmlLang } from "@/i18n/HtmlLang";
 import "./globals.css";
@@ -30,7 +31,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ne" className={`${mukta.variable} ${newsreader.variable} ${serifDeva.variable}`}>
+    <html
+      lang="ne"
+      className={`${GeistSans.variable} ${mukta.variable} ${newsreader.variable} ${serifDeva.variable}`}
+    >
       <body className="min-h-dvh">
         <HtmlLang />
         {children}
