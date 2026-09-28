@@ -12,7 +12,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-rule bg-paper/90 backdrop-blur-sm">
+    <header className="sticky top-0 z-40 border-b border-rule bg-paper">
       <Container className="flex h-16 items-center justify-between gap-4">
         <a href="#home" className="flex flex-col leading-tight" onClick={() => setOpen(false)}>
           <span className="font-display text-xl">{t(site.name)}</span>

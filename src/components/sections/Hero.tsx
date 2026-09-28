@@ -57,12 +57,12 @@ export function Hero() {
           </ol>
         </div>
 
-        <div className="mx-auto w-full max-w-sm md:col-span-5 md:max-w-none">
+        <div className="relative mx-auto w-full max-w-sm md:col-span-5 md:max-w-none">
           <Portrait src={site.portrait} alt={`${t(site.honorific)} ${t(site.name)}`} initials="BK" />
-          <div className="mt-6 flex flex-col items-center gap-1.5 text-center">
-            <span className="rounded-full bg-crimson px-5 py-1.5 text-sm font-medium text-paper">{t(site.name)}</span>
-            <span className="text-xs text-ink-mute">{t(hero.stamp)}</span>
-          </div>
+          <span className="absolute -bottom-5 left-4 inline-flex items-center gap-2 border border-rule bg-paper px-4 py-2 text-sm font-medium shadow-sm sm:left-8">
+            <span aria-hidden className="size-1.5 rounded-full bg-crimson" />
+            {t(hero.stamp)}
+          </span>
         </div>
       </Container>
     </section>
