@@ -44,7 +44,7 @@ export function ContactForm() {
   }
 
   const fieldClass =
-    "w-full rounded-sm border border-rule bg-paper px-3.5 py-2.5 text-ink placeholder:text-ink-mute focus:border-ink focus:outline-none";
+    "w-full rounded-sm border border-rule bg-paper px-3.5 py-2.5 text-ink transition-colors placeholder:text-ink-mute hover:border-ink-mute focus:border-ink focus:outline-none";
 
   return (
     <form onSubmit={onSubmit} noValidate className="space-y-4">
@@ -93,7 +93,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex items-center gap-2 rounded-sm bg-crimson px-5 py-3 text-base font-medium text-paper transition-colors hover:bg-crimson-deep disabled:opacity-60"
+          className="inline-flex items-center gap-2 rounded-sm bg-crimson px-5 py-3 text-base font-medium text-paper shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-crimson-deep hover:shadow-md active:translate-y-0 active:shadow-none disabled:pointer-events-none disabled:opacity-60"
         >
           {status === "sending" ? t(copy.form.sending) : t(copy.form.submit)}
         </button>

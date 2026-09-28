@@ -70,7 +70,7 @@ export function Transparency() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t(copy.search)}
-            className="w-full rounded-sm border border-rule bg-paper py-2.5 pl-10 pr-3 placeholder:text-ink-mute focus:border-ink focus:outline-none"
+            className="w-full rounded-sm border border-rule bg-paper py-2.5 pl-10 pr-3 transition-colors placeholder:text-ink-mute hover:border-ink-mute focus:border-ink focus:outline-none"
           />
         </label>
 
@@ -132,7 +132,10 @@ function ProjectTable({ rows, money }: RowsProps) {
         </thead>
         <tbody>
           {rows.map((p) => (
-            <tr key={p.id} className="border-b border-rule align-top last:border-0 hover:bg-paper-deep/40">
+            <tr
+              key={p.id}
+              className="border-b border-rule align-top transition-colors last:border-0 hover:bg-paper-deep/40"
+            >
               <th scope="row" className="px-4 py-4 font-normal">
                 <span className="block font-medium">{t(p.name)}</span>
                 <span className="mt-0.5 block text-sm text-ink-mute">
@@ -167,7 +170,7 @@ function ProjectCards({ rows, money }: RowsProps) {
   return (
     <ul className="grid gap-4 md:hidden">
       {rows.map((p) => (
-        <li key={p.id} className="border border-rule bg-paper p-4">
+        <li key={p.id} className="border border-rule bg-paper p-4 transition-shadow hover:shadow-md">
           <div className="flex items-start justify-between gap-3">
             <p className="font-medium">{t(p.name)}</p>
             <StatusBadge status={p.status} />
@@ -224,7 +227,7 @@ function FilterSelect({ label, value, onChange, options }: FilterSelectProps) {
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className={cn(
-          "rounded-sm border bg-paper px-2.5 py-2 text-ink focus:border-ink focus:outline-none",
+          "rounded-sm border bg-paper px-2.5 py-2 text-ink transition-colors hover:border-ink-mute focus:border-ink focus:outline-none",
           value === "all" ? "border-rule" : "border-crimson",
         )}
       >

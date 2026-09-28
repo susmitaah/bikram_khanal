@@ -14,7 +14,7 @@ export function Portrait({ src, alt, initials, className }: PortraitProps) {
   return (
     <div className={cn("relative", className)}>
       <div aria-hidden className="absolute inset-0 translate-x-3 translate-y-3 border border-ink/40" />
-      <div className="relative aspect-[4/5] overflow-hidden bg-paper-deep">
+      <div className="relative aspect-4/5 overflow-hidden bg-paper-deep">
         {src ? (
           <Image src={src} alt={alt} fill priority sizes="(min-width: 768px) 40vw, 90vw" className="object-cover" />
         ) : (

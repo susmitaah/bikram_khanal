@@ -30,7 +30,7 @@ export function Gallery() {
               <button
                 type="button"
                 onClick={() => open(item)}
-                className="group relative block size-full overflow-hidden bg-paper-deep"
+                className="group relative block size-full overflow-hidden bg-paper-deep shadow-sm transition-shadow hover:shadow-lg"
               >
                 <Image
                   src={item.src}
@@ -58,14 +58,14 @@ export function Gallery() {
       >
         {active?.src && (
           <figure className="relative">
-            <div className="relative aspect-[3/2] w-full">
+            <div className="relative aspect-3/2 w-full">
               <Image src={active.src} alt={t(active.caption)} fill sizes="92vw" className="object-contain" />
             </div>
             <figcaption className="mt-3 text-paper">{t(active.caption)}</figcaption>
             <button
               type="button"
               onClick={() => dialogRef.current?.close()}
-              className="absolute right-2 top-2 rounded-full bg-ink/70 p-2 text-paper"
+              className="absolute right-2 top-2 rounded-full bg-ink/70 p-2 text-paper transition-colors hover:bg-ink"
               aria-label={t(copy.close)}
             >
               <Close />
@@ -79,7 +79,7 @@ export function Gallery() {
 
 function PlaceholderTile({ caption, note }: { caption: string; note: string }) {
   return (
-    <div className="flex size-full flex-col justify-end border border-dashed border-ink/25 bg-paper-deep/60 p-4">
+    <div className="flex size-full flex-col justify-end border border-dashed border-ink/25 bg-paper-deep/60 p-4 transition-colors hover:bg-paper-deep">
       <span className="text-xs text-ink-mute">{note}</span>
       <span className="mt-1 font-display text-xl text-ink-soft">{caption}</span>
     </div>

@@ -21,7 +21,7 @@ export function Footer() {
 
         <nav aria-label="Footer" className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
           {nav.map((item) => (
-            <a key={item.id} href={`#${item.id}`} className="hover:text-paper">
+            <a key={item.id} href={`#${item.id}`} className="link-underline transition-colors hover:text-paper">
               {t(item.label)}
             </a>
           ))}

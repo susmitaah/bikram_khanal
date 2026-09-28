@@ -14,7 +14,11 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-rule bg-paper">
       <Container className="flex h-16 items-center justify-between gap-4">
-        <a href="#home" className="flex flex-col leading-tight" onClick={() => setOpen(false)}>
+        <a
+          href="#home"
+          className="flex flex-col leading-tight transition-opacity hover:opacity-75"
+          onClick={() => setOpen(false)}
+        >
           <span className="font-display text-xl font-semibold">{t(site.name)}</span>
           <span className="text-xs text-ink-mute">
             {t(site.role)} · {t(site.constituency)}
@@ -26,7 +30,7 @@ export function Header() {
             <a
               key={item.id}
               href={`#${item.id}`}
-              className="text-[15px] text-ink-soft underline-offset-1.5 transition-colors hover:text-ink hover:underline decoration-crimson"
+              className="link-underline text-[15px] text-ink-soft transition-colors hover:text-ink"
             >
               {t(item.label)}
             </a>
@@ -42,7 +46,7 @@ export function Header() {
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
-            className="p-1.5"
+            className="rounded-full p-1.5 transition-colors hover:bg-paper-deep"
           >
             {open ? <Close /> : <Menu />}
           </button>
@@ -57,7 +61,7 @@ export function Header() {
                 key={item.id}
                 href={`#${item.id}`}
                 onClick={() => setOpen(false)}
-                className="border-b border-rule/60 py-3 text-lg last:border-0"
+                className="-mx-2 border-b border-rule/60 px-2 py-3 text-lg transition-colors last:border-0 hover:bg-paper-deep/60 hover:text-crimson"
               >
                 {t(item.label)}
               </a>

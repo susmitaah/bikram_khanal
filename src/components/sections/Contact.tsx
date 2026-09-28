@@ -40,9 +40,9 @@ export function Contact() {
                   <a
                     href={href}
                     {...(external[key] ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className="group flex items-center gap-5 py-5 transition-colors hover:text-crimson"
+                    className="group -mx-3 flex items-center gap-5 rounded-md px-3 py-5 transition-colors hover:bg-paper hover:text-crimson"
                   >
-                    <span className="grid size-11 shrink-0 place-items-center rounded-full border border-ink/20 group-hover:border-crimson">
+                    <span className="grid size-11 shrink-0 place-items-center rounded-full border border-ink/20 transition-colors group-hover:border-crimson group-hover:bg-crimson/5">
                       <Icon />
                     </span>
                     <span className="min-w-0 flex-1">
@@ -58,7 +58,7 @@ export function Contact() {
         </div>
 
         <div className="md:col-span-7">
-          <div className="border border-rule bg-paper p-6 sm:p-8">
+          <div className="border border-rule border-t-4 border-t-crimson bg-paper p-6 shadow-sm sm:p-8">
             <h3 className="font-display text-2xl font-semibold">{t(copy.formTitle)}</h3>
             <p className="mt-1.5 text-sm text-ink-soft">{t(copy.formIntro)}</p>
             <div className="mt-6">
