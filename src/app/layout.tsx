@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
-import { Mukta, Newsreader, Noto_Serif_Devanagari } from "next/font/google";
+import { Mukta, Noto_Serif_Devanagari } from "next/font/google";
 import { HtmlLang } from "@/i18n/HtmlLang";
 import "./globals.css";
 
@@ -8,13 +8,6 @@ const mukta = Mukta({
   variable: "--font-mukta",
   subsets: ["devanagari", "latin"],
   weight: ["400", "500", "600", "700"],
-});
-
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
-  subsets: ["latin"],
-  weight: ["500", "600"],
-  style: ["normal", "italic"],
 });
 
 const serifDeva = Noto_Serif_Devanagari({
@@ -33,7 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="ne"
-      className={`${GeistSans.variable} ${mukta.variable} ${newsreader.variable} ${serifDeva.variable}`}
+      className={`${GeistSans.variable} ${mukta.variable} ${serifDeva.variable}`}
     >
       <body className="min-h-dvh">
         <HtmlLang />

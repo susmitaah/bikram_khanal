@@ -28,10 +28,11 @@
   --color-field: var(--field);
   --color-harvest: var(--harvest);
 
-  /* Geist for Latin glyphs; falls through to Mukta (which covers Devanagari)
-     for any character Geist doesn't have — keeps Nepali text intact. */
+  /* Geist for Latin glyphs everywhere, body and headings alike; falls
+     through to Mukta/Noto Serif Devanagari for any glyph Geist lacks
+     (i.e. Devanagari), keeping Nepali text intact. */
   --font-sans: var(--font-geist-sans), var(--font-mukta), system-ui, sans-serif;
-  --font-display: var(--font-newsreader), var(--font-serif-deva), Georgia, serif;
+  --font-display: var(--font-geist-sans), var(--font-serif-deva), var(--font-mukta), system-ui, sans-serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
