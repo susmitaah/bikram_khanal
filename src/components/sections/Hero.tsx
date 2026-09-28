@@ -16,7 +16,7 @@ export function Hero() {
   return (
     <section id="home" className="border-b border-rule">
       <Container className="grid items-center gap-14 pb-16 pt-12 md:grid-cols-12 md:pt-20 lg:pb-24">
-        <div className="md:col-span-7">
+        <div className="md:col-span-8">
           <span className="animate-fade-up mb-6 inline-flex items-center gap-2 rounded-full border border-rule bg-paper py-1.5 pl-2 pr-4 text-sm font-medium text-crimson transition-colors hover:bg-paper-deep">
             <Image src="/images/rsp-bell.png" alt="" width={22} height={22} className="size-5.5" />
             {t(hero.badge)}
@@ -28,8 +28,8 @@ export function Hero() {
 
           <h1
             className={cn(
-              "animate-fade-up font-display font-semibold text-[clamp(2.5rem,6.2vw,4.9rem)] tracking-tight [animation-delay:140ms]",
-              lang === "en" ? "leading-[1.04]" : "leading-[1.3]",
+              "animate-fade-up font-display font-semibold text-[clamp(2.25rem,4.6vw,3.75rem)] tracking-tight [animation-delay:140ms]",
+              lang === "en" ? "leading-[1.08]" : "leading-[1.32]",
             )}
           >
             <span className="block">{t(hero.headline[0])}</span>
@@ -62,7 +62,7 @@ export function Hero() {
           </ol>
         </div>
 
-        <div className="animate-fade-up relative mx-auto w-full max-w-sm [animation-delay:180ms] md:col-span-5 md:max-w-none">
+        <div className="animate-fade-up relative mx-auto w-full max-w-sm [animation-delay:180ms] md:col-span-4 md:max-w-none">
           <Portrait src={site.portrait} alt={`${t(site.honorific)} ${t(site.name)}`} initials="BK" />
           <span className="absolute -bottom-5 left-4 inline-flex items-center gap-2 border border-rule bg-paper px-4 py-2 text-sm font-medium shadow-sm transition-shadow hover:shadow-md sm:left-8">
             <span aria-hidden className="size-1.5 rounded-full bg-crimson" />
