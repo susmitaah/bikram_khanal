@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { hero } from "@/content/home";
 import { site } from "@/content/site";
 import { useLang } from "@/i18n/useLang";
@@ -7,7 +8,7 @@ import { cn } from "@/lib/cn";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Portrait } from "@/components/ui/Portrait";
-import { ArrowRight, Bell } from "@/components/ui/Icons";
+import { ArrowRight } from "@/components/ui/Icons";
 
 export function Hero() {
   const { t, lang, num } = useLang();
@@ -16,8 +17,8 @@ export function Hero() {
     <section id="home" className="border-b border-rule">
       <Container className="grid items-center gap-14 pb-16 pt-12 md:grid-cols-12 md:pt-20 lg:pb-24">
         <div className="md:col-span-7">
-          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-rule bg-paper px-4 py-1.5 text-sm font-medium text-crimson">
-            <Bell className="size-4" />
+          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-rule bg-paper py-1.5 pl-2 pr-4 text-sm font-medium text-crimson">
+            <Image src="/images/rsp-bell.png" alt="" width={22} height={22} className="size-[22px]" />
             {t(hero.badge)}
           </span>
 

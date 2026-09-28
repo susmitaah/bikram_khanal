@@ -81,17 +81,6 @@ export function Menu(props: IconProps) {
   );
 }
 
-/** Rastriya Swatantra Party's election symbol. */
-export function Bell(props: IconProps) {
-  return (
-    <svg {...base} {...props}>
-      <path d="M12 3v1.5" />
-      <path d="M7 16h10l-1.2-2.1a6 6 0 0 1-.8-3V9a3 3 0 0 0-2.5-2.96V5.5h-1v.54A3 3 0 0 0 9 9v1.9a6 6 0 0 1-.8 3L7 16Z" />
-      <path d="M10 18.5a2 2 0 0 0 4 0" />
-    </svg>
-  );
-}
-
 export function Close(props: IconProps) {
   return (
     <svg {...base} {...props}>
