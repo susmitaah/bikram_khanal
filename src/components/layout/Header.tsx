@@ -26,7 +26,7 @@ export function Header() {
             <a
               key={item.id}
               href={`#${item.id}`}
-              className="text-[15px] text-ink-soft underline-offset-[6px] transition-colors hover:text-ink hover:underline decoration-crimson"
+              className="text-[15px] text-ink-soft underline-offset-1.5 transition-colors hover:text-ink hover:underline decoration-crimson"
             >
               {t(item.label)}
             </a>

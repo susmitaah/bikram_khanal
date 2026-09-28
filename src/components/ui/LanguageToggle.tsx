@@ -20,7 +20,7 @@ export function LanguageToggle({ className }: { className?: string }) {
           onClick={() => setLang(o.value)}
           aria-pressed={lang === o.value}
           className={cn(
-            "rounded-[2px] px-2.5 py-1 transition-colors",
+            "rounded-xs px-2.5 py-1 transition-colors",
             lang === o.value ? "bg-ink text-paper" : "text-ink-soft hover:text-ink",
           )}
         >

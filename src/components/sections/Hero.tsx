@@ -18,7 +18,7 @@ export function Hero() {
       <Container className="grid items-center gap-14 pb-16 pt-12 md:grid-cols-12 md:pt-20 lg:pb-24">
         <div className="md:col-span-7">
           <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-rule bg-paper py-1.5 pl-2 pr-4 text-sm font-medium text-crimson">
-            <Image src="/images/rsp-bell.png" alt="" width={22} height={22} className="size-[22px]" />
+            <Image src="/images/rsp-bell.png" alt="" width={22} height={22} className="size-5.5" />
             {t(hero.badge)}
           </span>
 

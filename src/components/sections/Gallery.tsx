@@ -23,7 +23,7 @@ export function Gallery() {
     <Section id="gallery">
       <SectionHeading index="03" eyebrow={copy.eyebrow} title={copy.title} />
 
-      <ul className="grid auto-rows-[180px] grid-cols-2 gap-3 sm:auto-rows-[220px] md:grid-cols-3">
+      <ul className="grid auto-rows-45 grid-cols-2 gap-3 sm:auto-rows-55 md:grid-cols-3">
         {gallery.map((item) => (
           <li key={item.id} className={cn(item.tall && "row-span-2")}>
             {item.src ? (
@@ -37,9 +37,9 @@ export function Gallery() {
                   alt={t(item.caption)}
                   fill
                   sizes="(min-width: 768px) 33vw, 50vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  className="object-cover transition-transform duration-500 group-hover:scale-103"
                 />
-                <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent p-3 text-left text-sm text-paper">
+                <span className="absolute inset-x-0 bottom-0 bg-linear-to-t from-ink/80 to-transparent p-3 text-left text-sm text-paper">
                   {t(item.caption)}
                 </span>
               </button>

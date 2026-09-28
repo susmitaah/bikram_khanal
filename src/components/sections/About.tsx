@@ -26,10 +26,10 @@ export function About() {
 
         <ol className="relative md:col-span-7 md:pt-2">
           {/* the timeline rule */}
-          <span aria-hidden className="absolute bottom-2 left-[5px] top-3 w-px bg-rule" />
+          <span aria-hidden className="absolute bottom-2 left-1.25 top-3 w-px bg-rule" />
           {about.milestones.map((m) => (
             <li key={m.title.en} className="relative pb-12 pl-10 last:pb-0">
-              <span aria-hidden className="absolute left-0 top-2.5 size-[11px] rounded-full border-2 border-crimson bg-paper" />
+              <span aria-hidden className="absolute left-0 top-2.5 size-2.75 rounded-full border-2 border-crimson bg-paper" />
               <p className="text-sm font-medium tabular-nums text-crimson">{num(m.year)}</p>
               <h3 className="mt-1 font-display text-2xl font-semibold">{t(m.title)}</h3>
               <p className="mt-3 max-w-prose text-[17px] leading-relaxed text-ink-soft">{t(m.body)}</p>
