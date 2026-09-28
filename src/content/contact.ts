@@ -36,5 +36,27 @@ export const contactCopy = {
       np: "पठाउन सकिएन। कृपया फेरि प्रयास गर्नुहोस् वा सिधै सम्पर्क गर्नुहोस्।",
       en: "Something went wrong. Please try again, or reach out directly.",
     } satisfies L,
+    errors: {
+      invalid_name: {
+        np: "कृपया आफ्नो पूरा नाम लेख्नुहोस् (कम्तीमा २ अक्षर)।",
+        en: "Please enter your full name (at least 2 characters).",
+      },
+      invalid_email: {
+        np: "कृपया मान्य इमेल ठेगाना दिनुहोस्।",
+        en: "Please enter a valid email address.",
+      },
+      invalid_message: {
+        np: "सन्देश धेरै छोटो छ — कम्तीमा १० अक्षर लेख्नुहोस्।",
+        en: "Message is too short — please write at least 10 characters.",
+      },
+      message_too_long: {
+        np: "सन्देश धेरै लामो छ।",
+        en: "Message is too long.",
+      },
+      rate_limited: {
+        np: "धेरै पटक पठाउनुभयो। केही समयपछि फेरि प्रयास गर्नुहोस्।",
+        en: "Too many attempts — please wait a moment and try again.",
+      },
+    } satisfies Record<string, L>,
   },
 };

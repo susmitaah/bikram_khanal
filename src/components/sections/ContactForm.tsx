@@ -10,6 +10,7 @@ type Status = "idle" | "sending" | "sent" | "error";
 export function ContactForm() {
   const { t } = useLang();
   const [status, setStatus] = useState<Status>("idle");
+  const [errorCode, setErrorCode] = useState<string | null>(null);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -17,6 +18,7 @@ export function ContactForm() {
     const data = new FormData(form);
 
     setStatus("sending");
+    setErrorCode(null);
 
     try {
       const res = await fetch("/api/contact", {
@@ -32,22 +34,31 @@ export function ContactForm() {
         }),
       });
 
-      if (!res.ok) throw new Error("request_failed");
-      const json = (await res.json()) as { ok: boolean };
-      if (!json.ok) throw new Error("send_failed");
+      const json = (await res.json().catch(() => null)) as { ok: boolean; error?: string } | null;
+      if (!res.ok || !json?.ok) {
+        setErrorCode(json?.error ?? "request_failed");
+        setStatus("error");
+        return;
+      }
 
       setStatus("sent");
       form.reset();
     } catch {
+      setErrorCode(null);
       setStatus("error");
     }
   }
+
+  const errorMessage =
+    errorCode && errorCode in copy.form.errors
+      ? t(copy.form.errors[errorCode as keyof typeof copy.form.errors])
+      : t(copy.form.error);
 
   const fieldClass =
     "w-full rounded-sm border border-rule bg-paper px-3.5 py-2.5 text-ink transition-colors placeholder:text-ink-mute hover:border-ink-mute focus:border-ink focus:outline-none";
 
   return (
-    <form onSubmit={onSubmit} noValidate className="space-y-4">
+    <form onSubmit={onSubmit} className="space-y-4">
       {/* honeypot — hidden from real users, left blank */}
       <input
         type="text"
@@ -100,7 +111,7 @@ export function ContactForm() {
 
         <p role="status" aria-live="polite" className="text-sm">
           {status === "sent" && <span className="text-field">{t(copy.form.success)}</span>}
-          {status === "error" && <span className="text-crimson">{t(copy.form.error)}</span>}
+          {status === "error" && <span className="text-crimson">{errorMessage}</span>}
         </p>
       </div>
     </form>
