@@ -1,26 +1,76 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #fbfaf8;
+  --paper-deep: #f1efe9;
+  --ink: #1a1a18;
+  --ink-soft: #504e48;
+  --ink-mute: #86847c;
+  --rule: #e3e0d7;
+  --crimson: #a3161b;
+  --crimson-deep: #7d1014;
+  --field: #3d5a2b;
+  --harvest: #b7791f;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-mute: var(--ink-mute);
+  --color-rule: var(--rule);
+  --color-crimson: var(--crimson);
+  --color-crimson-deep: var(--crimson-deep);
+  --color-field: var(--field);
+  --color-harvest: var(--harvest);
+
+  --font-sans: var(--font-mukta), system-ui, sans-serif;
+  --font-display: var(--font-newsreader), var(--font-serif-deva), Georgia, serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--crimson);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--crimson);
+  outline-offset: 3px;
+}
+
+/* Devanagari needs room above and below for matras */
+html[lang="ne"] .font-display {
+  line-height: 1.28;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+dialog::backdrop {
+  background: rgb(28 26 22 / 0.85);
 }
