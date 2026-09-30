@@ -1,21 +1,27 @@
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { Hero } from "@/components/sections/Hero";
-import { Victory } from "@/components/sections/Victory";
-import { About } from "@/components/sections/About";
-import { Transparency } from "@/components/sections/Transparency";
-import { Gallery } from "@/components/sections/Gallery";
-import { Contact } from "@/components/sections/Contact";
+import { Navbar } from "@/components/Navbar";
+import { Hero } from "@/components/Hero";
+import { Stats } from "@/components/Stats";
+import { About } from "@/components/About";
+import { Priorities } from "@/components/Priorities";
+import { Work } from "@/components/Work";
+import { Journey } from "@/components/Journey";
+import { News } from "@/components/News";
+import { Gallery } from "@/components/Gallery";
+import { Contact } from "@/components/Contact";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
-      <Header />
+      <Navbar />
       <main>
         <Hero />
-        <Victory />
+        <Stats />
         <About />
-        <Transparency />
+        <Priorities />
+        <Work />
+        <Journey />
+        <News />
         <Gallery />
         <Contact />
       </main>

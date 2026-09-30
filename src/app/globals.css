@@ -1,38 +1,40 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #fbfaf8;
-  --paper-deep: #f1efe9;
-  --ink: #1a1a18;
-  --ink-soft: #504e48;
-  --ink-mute: #86847c;
-  --rule: #e3e0d7;
-  --crimson: #a3161b;
-  --crimson-deep: #7d1014;
-  --field: #3d5a2b;
-  --harvest: #b7791f;
+  --cream: #f8f5ee;
+  --cream-deep: #f0ead9;
+  --navy: #102a43;
+  --navy-deep: #0b1e30;
+  --charcoal: #1f2933;
+  --charcoal-soft: #4b5768;
+  --charcoal-mute: #8a94a6;
+  --maroon: #a61b2b;
+  --maroon-deep: #7e1420;
+  --gold: #b08d57;
+  --rule: #e4dfd3;
+  --rule-on-navy: rgb(255 255 255 / 0.14);
 
-  /* shadcn-style radius scale */
   --radius: 0.625rem;
 }
 
 @theme inline {
-  --color-paper: var(--paper);
-  --color-paper-deep: var(--paper-deep);
-  --color-ink: var(--ink);
-  --color-ink-soft: var(--ink-soft);
-  --color-ink-mute: var(--ink-mute);
+  --color-cream: var(--cream);
+  --color-cream-deep: var(--cream-deep);
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-charcoal: var(--charcoal);
+  --color-charcoal-soft: var(--charcoal-soft);
+  --color-charcoal-mute: var(--charcoal-mute);
+  --color-maroon: var(--maroon);
+  --color-maroon-deep: var(--maroon-deep);
+  --color-gold: var(--gold);
   --color-rule: var(--rule);
-  --color-crimson: var(--crimson);
-  --color-crimson-deep: var(--crimson-deep);
-  --color-field: var(--field);
-  --color-harvest: var(--harvest);
+  --color-rule-on-navy: var(--rule-on-navy);
 
-  /* Geist for Latin glyphs everywhere, body and headings alike; falls
-     through to Mukta/Noto Serif Devanagari for any glyph Geist lacks
-     (i.e. Devanagari), keeping Nepali text intact. */
+  /* Geist for body/UI; Playfair Display for headings. Both fall through to
+     Mukta for any Devanagari glyph (the priority labels, decorative text). */
   --font-sans: var(--font-geist-sans), var(--font-mukta), system-ui, sans-serif;
-  --font-display: var(--font-geist-sans), var(--font-serif-deva), var(--font-mukta), system-ui, sans-serif;
+  --font-display: var(--font-playfair), var(--font-mukta), Georgia, serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -43,19 +45,19 @@
 html {
   color-scheme: light;
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
-  background-color: var(--paper);
-  color: var(--ink);
+  background-color: var(--cream);
+  color: var(--charcoal);
   font-family: var(--font-sans);
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* thin scrollbar, everywhere — never overridden per-component */
+/* thin scrollbar, everywhere */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--rule) transparent;
@@ -73,37 +75,37 @@ body {
 }
 
 ::selection {
-  background: var(--crimson);
-  color: var(--paper);
+  background: var(--maroon);
+  color: var(--cream);
 }
 
 :focus-visible {
-  outline: 2px solid var(--crimson);
+  outline: 2px solid var(--maroon);
   outline-offset: 3px;
 }
 
-/* Devanagari needs room above and below for matras */
-html[lang="ne"] .font-display {
-  line-height: 1.28;
+/* Devanagari needs a little more line-height room for matras */
+.font-devanagari {
+  font-family: var(--font-mukta), system-ui, sans-serif;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
-  }
+/* Scroll/entrance reveal — transition-based (not @keyframes) so that
+   disabling transitions under reduced-motion still lands on the final,
+   visible values instead of freezing at the hidden state. */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-dialog::backdrop {
-  background: rgb(28 26 22 / 0.85);
-}
-
-/* animated underline for nav-style text links — reveals left-to-right on hover/focus */
+/* animated underline for nav-style text links */
 .link-underline {
   position: relative;
   text-decoration: none;
@@ -115,7 +117,7 @@ dialog::backdrop {
   right: 0;
   bottom: -3px;
   height: 1.5px;
-  background: var(--crimson);
+  background: currentColor;
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.25s ease;
@@ -126,17 +128,22 @@ dialog::backdrop {
   transform-origin: left;
 }
 
-/* staggered entrance for the hero — one considered moment, not scattered motion */
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
   }
 }
-.animate-fade-up {
-  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+dialog::backdrop {
+  background: rgb(16 42 67 / 0.85);
 }

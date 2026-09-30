@@ -33,8 +33,7 @@ function getTransport() {
 }
 
 function registeredEmail() {
-  const raw = process.env.CONTACT_TO_EMAIL ?? site.contact.email.href;
-  return raw.replace(/^mailto:/, "");
+  return process.env.CONTACT_TO_EMAIL ?? site.contact.email;
 }
 
 export async function sendContactMessage(payload: ContactPayload) {
