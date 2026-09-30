@@ -1,6 +1,9 @@
+"use client";
+
 import { Mail, Phone, Clock, MapPin } from "lucide-react";
 import { offices, contactCopy as copy } from "@/content/contact";
 import { socials } from "@/content/site";
+import { useLang } from "@/i18n/useLang";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
@@ -10,23 +13,25 @@ import { FacebookIcon } from "@/components/ui/SocialIcons";
 const socialIcons = { facebook: FacebookIcon };
 
 export function Contact() {
+  const { t } = useLang();
+
   return (
     <section id="contact" className="border-b border-rule bg-cream-deep py-20 sm:py-28">
       <Container>
-        <SectionHeading title={copy.title}>
-          <p>{copy.intro}</p>
+        <SectionHeading title={t(copy.title)}>
+          <p>{t(copy.intro)}</p>
         </SectionHeading>
 
         <div className="mt-14 grid gap-12 lg:grid-cols-12">
           <div className="space-y-8 lg:col-span-5">
             {offices.map((office, i) => (
-              <Reveal key={office.name} delay={i * 90}>
+              <Reveal key={office.name.en} delay={i * 90}>
                 <div className="rounded-xl border border-rule bg-cream p-6">
                   <h3 className="flex items-center gap-2 font-display text-lg font-semibold text-navy">
                     <MapPin size={18} className="text-maroon" />
-                    {office.name}
+                    {t(office.name)}
                   </h3>
-                  <p className="mt-3 text-[15px] leading-relaxed text-charcoal-soft">{office.address}</p>
+                  <p className="mt-3 text-[15px] leading-relaxed text-charcoal-soft">{t(office.address)}</p>
                   <div className="mt-4 space-y-2 text-sm">
                     {office.phone && (
                       <a href={`tel:${office.phone}`} className="flex items-center gap-2 text-charcoal hover:text-maroon">
@@ -43,7 +48,7 @@ export function Contact() {
                     )}
                     {office.hours && (
                       <p className="flex items-center gap-2 text-charcoal-soft">
-                        <Clock size={15} className="text-charcoal-mute" /> {office.hours}
+                        <Clock size={15} className="text-charcoal-mute" /> {t(office.hours)}
                       </p>
                     )}
                   </div>

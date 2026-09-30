@@ -2,12 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { nav, site } from "@/content/site";
+import { nav, site, commonCopy } from "@/content/site";
+import { useLang } from "@/i18n/useLang";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { LanguageToggle } from "@/components/ui/LanguageToggle";
 import { cn } from "@/lib/cn";
 
 export function Navbar() {
+  const { t } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -33,10 +36,10 @@ export function Navbar() {
               scrolled || open ? "text-navy" : "text-cream",
             )}
           >
-            {site.name}
+            {t(site.name)}
           </span>
           <span className={cn("text-xs transition-colors", scrolled || open ? "text-charcoal-soft" : "text-cream/70")}>
-            {site.designation}
+            {t(site.designation)}
           </span>
         </a>
 
@@ -50,30 +53,34 @@ export function Navbar() {
                 scrolled ? "text-charcoal-soft hover:text-navy" : "text-cream/85 hover:text-cream",
               )}
             >
-              {item.label}
+              {t(item.label)}
             </a>
           ))}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-4 lg:flex">
+          <LanguageToggle dark={!scrolled} />
           <ButtonLink href="#contact" variant={scrolled ? "solid" : "ghost-light"} className="px-5 py-2.5 text-sm">
-            Get in Touch
+            {t(commonCopy.getInTouch)}
           </ButtonLink>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          aria-label={open ? "Close menu" : "Open menu"}
-          className={cn(
-            "rounded-full p-2 transition-colors lg:hidden",
-            scrolled || open ? "text-navy hover:bg-cream-deep" : "text-cream hover:bg-cream/10",
-          )}
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <LanguageToggle dark={!scrolled && !open} />
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={t(open ? { np: "मेनु बन्द गर्नुहोस्", en: "Close menu" } : { np: "मेनु खोल्नुहोस्", en: "Open menu" })}
+            className={cn(
+              "rounded-full p-2 transition-colors",
+              scrolled || open ? "text-navy hover:bg-cream-deep" : "text-cream hover:bg-cream/10",
+            )}
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </Container>
 
       {open && (
@@ -86,11 +93,11 @@ export function Navbar() {
                 onClick={() => setOpen(false)}
                 className="-mx-2 border-b border-rule/60 px-2 py-3.5 text-base text-charcoal transition-colors last:border-0 hover:bg-cream-deep hover:text-maroon"
               >
-                {item.label}
+                {t(item.label)}
               </a>
             ))}
             <ButtonLink href="#contact" className="mt-4 w-full justify-center">
-              Get in Touch
+              {t(commonCopy.getInTouch)}
             </ButtonLink>
           </Container>
         </nav>

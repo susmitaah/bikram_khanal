@@ -2,11 +2,13 @@
 
 import { useState, type FormEvent } from "react";
 import { contactCopy as copy } from "@/content/contact";
+import { useLang } from "@/i18n/useLang";
 import { cn } from "@/lib/cn";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
 export function ContactForm() {
+  const { t } = useLang();
   const [status, setStatus] = useState<Status>("idle");
   const [errorCode, setErrorCode] = useState<string | null>(null);
 
@@ -46,7 +48,7 @@ export function ContactForm() {
     }
   }
 
-  const errorMessage = (errorCode && copy.form.errors[errorCode]) || copy.form.error;
+  const errorMessage = errorCode && copy.form.errors[errorCode] ? t(copy.form.errors[errorCode]) : t(copy.form.error);
 
   const fieldClass =
     "w-full rounded-sm border border-rule bg-cream px-3.5 py-2.5 text-charcoal transition-colors placeholder:text-charcoal-mute hover:border-charcoal-mute focus:border-navy focus:outline-none";
@@ -57,22 +59,22 @@ export function ContactForm() {
       <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
 
       <label className="block text-sm">
-        <span className="mb-1.5 block text-charcoal-soft">{copy.form.name}</span>
+        <span className="mb-1.5 block text-charcoal-soft">{t(copy.form.name)}</span>
         <input name="name" type="text" required minLength={2} className={fieldClass} />
       </label>
 
       <label className="block text-sm">
-        <span className="mb-1.5 block text-charcoal-soft">{copy.form.email}</span>
+        <span className="mb-1.5 block text-charcoal-soft">{t(copy.form.email)}</span>
         <input name="email" type="email" required className={fieldClass} />
       </label>
 
       <label className="block text-sm">
-        <span className="mb-1.5 block text-charcoal-soft">{copy.form.subject}</span>
+        <span className="mb-1.5 block text-charcoal-soft">{t(copy.form.subject)}</span>
         <input name="subject" type="text" className={fieldClass} />
       </label>
 
       <label className="block text-sm">
-        <span className="mb-1.5 block text-charcoal-soft">{copy.form.message}</span>
+        <span className="mb-1.5 block text-charcoal-soft">{t(copy.form.message)}</span>
         <textarea name="message" required minLength={10} rows={5} className={cn(fieldClass, "resize-y")} />
       </label>
 
@@ -82,11 +84,11 @@ export function ContactForm() {
           disabled={status === "sending"}
           className="inline-flex items-center gap-2 rounded-sm bg-maroon px-6 py-3 text-[15px] font-medium text-cream shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-maroon-deep hover:shadow-md active:translate-y-0 active:shadow-none disabled:pointer-events-none disabled:opacity-60"
         >
-          {status === "sending" ? copy.form.sending : copy.form.submit}
+          {status === "sending" ? t(copy.form.sending) : t(copy.form.submit)}
         </button>
 
         <p role="status" aria-live="polite" className="text-sm">
-          {status === "sent" && <span className="text-green-700">{copy.form.success}</span>}
+          {status === "sent" && <span className="text-green-700">{t(copy.form.success)}</span>}
           {status === "error" && <span className="text-maroon">{errorMessage}</span>}
         </p>
       </div>

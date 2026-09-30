@@ -1,11 +1,16 @@
+"use client";
+
 import Image from "next/image";
-import { priorities } from "@/content/priorities";
+import { priorities, prioritiesCopy } from "@/content/priorities";
 import { images } from "@/lib/images";
+import { useLang } from "@/i18n/useLang";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 
 export function Priorities() {
+  const { t, lang } = useLang();
+
   return (
     <section id="priorities" className="relative overflow-hidden bg-navy py-20 text-cream sm:py-28">
       <Image
@@ -19,25 +24,27 @@ export function Priorities() {
       <div aria-hidden className="absolute inset-0 bg-linear-to-b from-navy via-navy/95 to-navy" />
 
       <Container className="relative">
-        <SectionHeading tone="onNavy" title="What matters to me">
-          <p>Five commitments guiding the work ahead for Nawalparasi-1.</p>
+        <SectionHeading tone="onNavy" title={t(prioritiesCopy.title)}>
+          <p>{t(prioritiesCopy.intro)}</p>
         </SectionHeading>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {priorities.map((p, i) => {
             const Icon = p.icon;
             return (
-              <Reveal key={p.title} delay={i * 70}>
-                <article className="group h-full rounded-xl border border-rule-on-navy bg-cream/[0.03] p-6 transition-colors hover:border-gold/50 hover:bg-cream/[0.06]">
+              <Reveal key={p.title.en} delay={i * 70}>
+                <article className="group h-full rounded-xl border border-rule-on-navy bg-cream/3 p-6 transition-colors hover:border-gold/50 hover:bg-cream/6">
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-semibold tabular-nums text-gold">{p.index}</span>
                     <Icon aria-hidden size={20} className="text-gold transition-transform group-hover:scale-110" />
                   </div>
                   <h3 className="mt-5 font-display text-xl font-semibold">
-                    <span className="font-devanagari mr-1.5 text-cream/60">{p.devanagari}</span>
-                    {p.title}
+                    {/* in English mode, a small Devanagari accent gives a taste of the Nepali term;
+                        in Nepali mode the title itself already is that word, so skip the repeat */}
+                    {lang === "en" && <span className="font-devanagari mr-1.5 text-cream/60">{p.title.np}</span>}
+                    {t(p.title)}
                   </h3>
-                  <p className="mt-3 text-[15px] leading-relaxed text-cream/70">{p.description}</p>
+                  <p className="mt-3 text-[15px] leading-relaxed text-cream/70">{t(p.description)}</p>
                 </article>
               </Reveal>
             );

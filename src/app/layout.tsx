@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { Mukta, Noto_Serif_Devanagari, Playfair_Display } from "next/font/google";
+import { HtmlLang } from "@/i18n/HtmlLang";
 import "./globals.css";
 
 const mukta = Mukta({
@@ -25,18 +26,21 @@ const notoSerifDevanagari = Noto_Serif_Devanagari({
 });
 
 export const metadata: Metadata = {
-  title: "Bikram Khanal | Member, House of Representatives — Nawalparasi-1",
+  title: "बिक्रम खनाल | Bikram Khanal — नवलपरासी-१",
   description:
-    "Hon. Bikram Khanal, Member of the House of Representatives for Nawalparasi-1, Nepal. A public-service portfolio: priorities, work, journey and ways to connect.",
+    "माननीय बिक्रम खनाल, प्रतिनिधि सभा सदस्य, नवलपरासी-१। जनसेवाको यात्रा — प्राथमिकता, काम र सम्पर्कका तरिका।",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang="ne"
       className={`${GeistSans.variable} ${mukta.variable} ${playfair.variable} ${notoSerifDevanagari.variable}`}
     >
-      <body className="min-h-dvh bg-cream text-charcoal">{children}</body>
+      <body className="min-h-dvh bg-cream text-charcoal">
+        <HtmlLang />
+        {children}
+      </body>
     </html>
   );
 }

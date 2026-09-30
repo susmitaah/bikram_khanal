@@ -1,12 +1,18 @@
+"use client";
+
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { images } from "@/lib/images";
 import { site } from "@/content/site";
+import { heroCopy } from "@/content/hero";
+import { useLang } from "@/i18n/useLang";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Reveal } from "@/components/ui/Reveal";
 
 export function Hero() {
+  const { t } = useLang();
+
   return (
     <section id="home" className="relative flex min-h-[94svh] items-center overflow-hidden bg-navy">
       <Image
@@ -25,26 +31,24 @@ export function Hero() {
         <div className="lg:col-span-7">
           <Reveal>
             <h1 className="font-display text-[clamp(2.5rem,5.2vw,4.25rem)] font-semibold leading-[1.08] tracking-tight text-cream">
-              A Stronger Community,
+              {t(heroCopy.headline.line1)}
               <br />
-              <span className="italic text-cream/90">A Brighter Future</span>
+              <span className="italic text-cream/90">{t(heroCopy.headline.line2)}</span>
             </h1>
           </Reveal>
 
           <Reveal delay={80}>
-            <p className="mt-7 max-w-xl text-lg leading-relaxed text-cream/80">
-              I&apos;m {site.name}, committed to serving people, strengthening communities, and creating
-              meaningful opportunities for everyone in {site.constituency}.
-            </p>
+            <p className="mt-7 max-w-xl text-lg leading-relaxed text-cream/80">{t(heroCopy.subheadline)}</p>
           </Reveal>
 
           <Reveal delay={160}>
             <div className="mt-10 flex flex-wrap gap-4">
               <ButtonLink href="#journey">
-                My Journey <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" />
+                {t(heroCopy.ctaJourney)}{" "}
+                <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" />
               </ButtonLink>
               <ButtonLink href="#work" variant="ghost-light">
-                View My Work
+                {t(heroCopy.ctaWork)}
               </ButtonLink>
             </div>
           </Reveal>
@@ -60,7 +64,7 @@ export function Hero() {
               <div className="relative h-full w-full overflow-hidden rounded-xl shadow-elevated">
                 <Image
                   src={images.bikram.portrait}
-                  alt={`${site.honorific} ${site.name}`}
+                  alt={`${t(site.honorific)} ${t(site.name)}`}
                   fill
                   priority
                   sizes="(min-width: 1024px) 32vw, 85vw"

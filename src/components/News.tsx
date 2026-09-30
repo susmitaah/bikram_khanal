@@ -1,24 +1,29 @@
+"use client";
+
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { featuredNews, news } from "@/content/news";
+import { featuredNews, news, newsCopy } from "@/content/news";
+import { useLang } from "@/i18n/useLang";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 
 export function News() {
+  const { t } = useLang();
+
   return (
     <section id="news" className="border-b border-rule bg-cream py-20 sm:py-28">
       <Container>
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <SectionHeading title="News & Updates">
-              <p>Statements, community coverage and press mentions, gathered in one place.</p>
+            <SectionHeading title={t(newsCopy.title)}>
+              <p>{t(newsCopy.intro)}</p>
             </SectionHeading>
             <a
               href="#news"
               className="group link-underline mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy"
             >
-              View All News <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
+              {t(newsCopy.viewAll)} <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
             </a>
           </div>
 
@@ -34,11 +39,13 @@ export function News() {
                 />
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-maroon">{featuredNews.category}</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-maroon">
+                  {t(featuredNews.category)}
+                </p>
                 <h3 className="mt-2 font-display text-2xl font-semibold leading-snug transition-colors group-hover:text-maroon">
-                  {featuredNews.title}
+                  {t(featuredNews.title)}
                 </h3>
-                <p className="mt-2 text-sm text-charcoal-mute">{featuredNews.date}</p>
+                <p className="mt-2 text-sm text-charcoal-mute">{t(featuredNews.date)}</p>
               </div>
             </a>
 
@@ -51,11 +58,13 @@ export function News() {
                         <Image src={n.image} alt="" fill sizes="80px" className="object-cover" />
                       </div>
                       <div className="min-w-0">
-                        <p className="text-xs font-semibold uppercase tracking-widest text-maroon">{n.category}</p>
+                        <p className="text-xs font-semibold uppercase tracking-widest text-maroon">
+                          {t(n.category)}
+                        </p>
                         <h4 className="mt-1 truncate font-display text-base font-semibold transition-colors group-hover:text-maroon">
-                          {n.title}
+                          {t(n.title)}
                         </h4>
-                        <p className="mt-1 text-sm text-charcoal-mute">{n.date}</p>
+                        <p className="mt-1 text-sm text-charcoal-mute">{t(n.date)}</p>
                       </div>
                     </a>
                   </Reveal>
