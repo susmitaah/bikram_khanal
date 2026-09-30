@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { featuredNews, news } from "@/content/news";
 import { Container } from "@/components/ui/Container";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 
 export function News() {
@@ -9,16 +10,19 @@ export function News() {
     <section id="news" className="border-b border-rule bg-cream py-20 sm:py-28">
       <Container>
         <div className="grid gap-14 lg:grid-cols-12">
-          <Reveal className="lg:col-span-4">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.14em] text-maroon">Latest News</p>
-            <h2 className="font-display text-4xl font-semibold leading-tight tracking-tight">News &amp; Updates</h2>
-            <p className="mt-5 text-lg leading-relaxed text-charcoal-soft">
-              Statements, community coverage and press mentions, gathered in one place.
-            </p>
-            <a href="#news" className="link-underline mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy">
-              View All News <ArrowRight size={15} />
-            </a>
-          </Reveal>
+          <div className="lg:col-span-4">
+            <SectionHeading eyebrow="Latest News" title="News & Updates">
+              <p>Statements, community coverage and press mentions, gathered in one place.</p>
+            </SectionHeading>
+            <Reveal delay={80}>
+              <a
+                href="#news"
+                className="group link-underline mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy"
+              >
+                View All News <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
+              </a>
+            </Reveal>
+          </div>
 
           <div className="lg:col-span-8">
             <Reveal>
@@ -33,7 +37,7 @@ export function News() {
                   />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-maroon">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-maroon">
                     {featuredNews.category}
                   </p>
                   <h3 className="mt-2 font-display text-2xl font-semibold leading-snug transition-colors group-hover:text-maroon">
@@ -53,7 +57,7 @@ export function News() {
                         <Image src={n.image} alt="" fill sizes="80px" className="object-cover" />
                       </div>
                       <div className="min-w-0">
-                        <p className="text-xs font-semibold uppercase tracking-[0.1em] text-maroon">{n.category}</p>
+                        <p className="text-xs font-semibold uppercase tracking-widest text-maroon">{n.category}</p>
                         <h4 className="mt-1 truncate font-display text-base font-semibold transition-colors group-hover:text-maroon">
                           {n.title}
                         </h4>

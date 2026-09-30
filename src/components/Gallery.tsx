@@ -19,7 +19,7 @@ export function Gallery() {
   };
 
   return (
-    <section id="gallery" className="border-b border-rule bg-navy py-20 text-cream sm:py-28">
+    <section id="gallery" className="border-b border-rule-on-navy bg-navy py-20 text-cream sm:py-28">
       <Container>
         <SectionHeading
           tone="onNavy"
@@ -58,8 +58,11 @@ export function Gallery() {
         </div>
 
         <div className="mt-10 text-center">
-          <a href="#gallery" className="link-underline inline-flex items-center gap-1.5 text-sm font-semibold text-gold">
-            View Full Gallery <ArrowRight size={15} />
+          <a
+            href="#gallery"
+            className="group link-underline inline-flex items-center gap-1.5 text-sm font-semibold text-gold"
+          >
+            View Full Gallery <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
           </a>
         </div>
       </Container>

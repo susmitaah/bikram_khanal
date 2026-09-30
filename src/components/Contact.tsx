@@ -21,7 +21,7 @@ export function Contact() {
           <div className="space-y-8 lg:col-span-5">
             {offices.map((office, i) => (
               <Reveal key={office.name} delay={i * 90}>
-                <div className="border border-rule bg-cream p-6">
+                <div className="rounded-md border border-rule bg-cream p-6">
                   <h3 className="flex items-center gap-2 font-display text-lg font-semibold text-navy">
                     <MapPin size={18} className="text-maroon" />
                     {office.name}
@@ -73,7 +73,7 @@ export function Contact() {
           </div>
 
           <Reveal delay={100} className="lg:col-span-7">
-            <div className="border border-rule border-t-4 border-t-maroon bg-cream p-6 shadow-sm sm:p-8">
+            <div className="rounded-md border border-rule border-t-4 border-t-maroon bg-cream p-6 shadow-sm sm:p-8">
               <ContactForm />
             </div>
           </Reveal>

@@ -4,6 +4,7 @@ import { images } from "@/lib/images";
 import { bioTimeline } from "@/content/timeline";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 
 export function About() {
@@ -24,20 +25,16 @@ export function About() {
           </Reveal>
 
           <div className="lg:col-span-7">
-            <Reveal>
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.14em] text-maroon">About Me</p>
-              <h2 className="font-display text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-                From humble beginnings to public service
-              </h2>
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-charcoal-soft">
+            <SectionHeading eyebrow="About Me" title="From humble beginnings to public service">
+              <p>
                 Raised in Bardaghat Susta West, Nawalparasi, his path to public life began in local party work
                 before he was elected to Nepal&apos;s Second Constituent Assembly — and, decades on, to the House
                 of Representatives for Nawalparasi-1.
               </p>
-              <ButtonLink href="#journey" variant="outline" className="mt-8">
-                Read My Full Story <ArrowRight size={17} />
-              </ButtonLink>
-            </Reveal>
+            </SectionHeading>
+            <ButtonLink href="#journey" variant="outline" className="mt-8">
+              Read My Full Story <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" />
+            </ButtonLink>
 
             <ol className="relative mt-14">
               <span aria-hidden className="absolute bottom-2 left-1.25 top-2 w-px bg-rule" />

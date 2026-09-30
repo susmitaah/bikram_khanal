@@ -23,7 +23,7 @@ export function Priorities() {
           <p>Five commitments guiding the work ahead for Nawalparasi-1.</p>
         </SectionHeading>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {priorities.map((p, i) => {
             const Icon = p.icon;
             return (

@@ -8,7 +8,7 @@ import { Reveal } from "@/components/ui/Reveal";
 
 export function Hero() {
   return (
-    <section id="home" className="relative flex min-h-[94vh] items-center overflow-hidden bg-navy">
+    <section id="home" className="relative flex min-h-[94svh] items-center overflow-hidden bg-navy">
       <Image
         src={images.hero.background}
         alt=""
@@ -24,7 +24,7 @@ export function Hero() {
       <Container className="relative grid items-center gap-16 pt-28 pb-16 lg:grid-cols-12 lg:pt-20">
         <div className="lg:col-span-7">
           <Reveal>
-            <p className="mb-6 text-sm font-semibold uppercase tracking-[0.2em] text-gold">
+            <p className="mb-6 text-sm font-semibold uppercase tracking-widest text-gold">
               Public Servant • Leader • Advocate
             </p>
           </Reveal>
@@ -57,7 +57,7 @@ export function Hero() {
         </div>
 
         <Reveal delay={200} className="lg:col-span-5">
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-sm">
+          <div className="relative mx-auto aspect-4/5 w-full max-w-sm">
             <div aria-hidden className="absolute inset-0 translate-x-3 translate-y-3 rounded-md border border-gold/40" />
             <div className="relative h-full w-full overflow-hidden rounded-md shadow-2xl">
               <Image

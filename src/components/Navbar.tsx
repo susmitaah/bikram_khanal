@@ -89,7 +89,7 @@ export function Navbar() {
                 {item.label}
               </a>
             ))}
-            <ButtonLink href="#contact" className="mt-4 justify-center" >
+            <ButtonLink href="#contact" className="mt-4 w-full justify-center">
               Get in Touch
             </ButtonLink>
           </Container>

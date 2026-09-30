@@ -1,27 +1,24 @@
 import { stats } from "@/content/stats";
 import { Container } from "@/components/ui/Container";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 
 export function Stats() {
   return (
-    <section className="border-b border-rule bg-cream py-20 sm:py-24">
+    <section className="border-b border-rule bg-cream py-20 sm:py-28">
       <Container>
         <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
           <div className="lg:col-span-5">
-            <Reveal>
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.14em] text-maroon">At a Glance</p>
-              <h2 className="font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-                A life in public service
-              </h2>
-              <p className="mt-5 max-w-md text-lg leading-relaxed text-charcoal-soft">
+            <SectionHeading eyebrow="At a Glance" title="A life in public service">
+              <p>
                 From the Constituent Assembly to the House of Representatives, a record built on showing up for
                 Nawalparasi-1.
               </p>
-            </Reveal>
+            </SectionHeading>
           </div>
 
           <div className="lg:col-span-7">
-            <div className="grid grid-cols-2 divide-x divide-y divide-rule border border-rule sm:grid-cols-4 sm:divide-y-0">
+            <div className="grid grid-cols-2 divide-x divide-y divide-rule overflow-hidden rounded-md border border-rule sm:grid-cols-4 sm:divide-y-0">
               {stats.map((s, i) => {
                 const Icon = s.icon;
                 return (
