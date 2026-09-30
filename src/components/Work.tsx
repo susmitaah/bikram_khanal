@@ -10,27 +10,25 @@ export function Work() {
     <section id="work" className="border-b border-rule bg-cream py-20 sm:py-28">
       <Container>
         <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionHeading eyebrow="Featured Work" title="Recent Work">
+          <SectionHeading title="Recent Work">
             <p>
               From community projects to legislative efforts, explore the work and initiatives focused on
               creating meaningful change.
             </p>
           </SectionHeading>
-          <Reveal delay={80}>
-            <a
-              href="#work"
-              className="group link-underline inline-flex items-center gap-1.5 text-sm font-semibold text-navy"
-            >
-              View All Work <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
-            </a>
-          </Reveal>
+          <a
+            href="#work"
+            className="group link-underline inline-flex items-center gap-1.5 text-sm font-semibold text-navy"
+          >
+            View All Work <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
+          </a>
         </div>
 
         <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {work.map((w, i) => (
             <Reveal key={w.id} delay={i * 80}>
               <article className="group h-full">
-                <div className="relative aspect-4/3 w-full overflow-hidden rounded-md">
+                <div className="relative aspect-4/3 w-full overflow-hidden rounded-xl">
                   <Image
                     src={w.image}
                     alt=""

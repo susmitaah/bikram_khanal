@@ -10,7 +10,7 @@ export function Footer() {
       <Container className="flex flex-col gap-10 pb-12 md:flex-row md:items-start md:justify-between">
         <div>
           <p className="font-display text-2xl font-semibold text-cream">
-            {site.honorific} {site.name}
+            {site.honorific} {site.name} <span className="font-devanagari text-gold/80">बिक्रम खनाल</span>
           </p>
           <p className="mt-1.5 max-w-sm text-sm">{site.designation}</p>
 

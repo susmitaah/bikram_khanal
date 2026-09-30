@@ -7,7 +7,7 @@ export function Journey() {
   return (
     <section id="journey" className="border-b border-rule bg-cream-deep py-20 sm:py-28">
       <Container>
-        <SectionHeading eyebrow="The Journey" title="My Political Journey" align="center" />
+        <SectionHeading title="My Political Journey" align="center" />
 
         {/* desktop: horizontal */}
         <ol className="relative mt-16 hidden lg:grid lg:grid-cols-4 lg:gap-6">

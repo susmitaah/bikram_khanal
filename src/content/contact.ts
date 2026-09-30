@@ -22,7 +22,6 @@ export const offices: Array<{
 ];
 
 export const contactCopy = {
-  eyebrow: "GET IN TOUCH",
   title: "Let's work together",
   intro: "Have a question, suggestion or concern? I'd love to hear from you.",
   form: {

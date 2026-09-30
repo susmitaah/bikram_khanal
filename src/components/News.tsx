@@ -11,49 +11,43 @@ export function News() {
       <Container>
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <SectionHeading eyebrow="Latest News" title="News & Updates">
+            <SectionHeading title="News & Updates">
               <p>Statements, community coverage and press mentions, gathered in one place.</p>
             </SectionHeading>
-            <Reveal delay={80}>
-              <a
-                href="#news"
-                className="group link-underline mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy"
-              >
-                View All News <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
-              </a>
-            </Reveal>
+            <a
+              href="#news"
+              className="group link-underline mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy"
+            >
+              View All News <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
+            </a>
           </div>
 
           <div className="lg:col-span-8">
-            <Reveal>
-              <a href="#news" className="group grid gap-5 sm:grid-cols-2 sm:items-center">
-                <div className="relative aspect-4/3 w-full overflow-hidden rounded-md">
-                  <Image
-                    src={featuredNews.image}
-                    alt=""
-                    fill
-                    sizes="(min-width: 640px) 40vw, 90vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-maroon">
-                    {featuredNews.category}
-                  </p>
-                  <h3 className="mt-2 font-display text-2xl font-semibold leading-snug transition-colors group-hover:text-maroon">
-                    {featuredNews.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-charcoal-mute">{featuredNews.date}</p>
-                </div>
-              </a>
-            </Reveal>
+            <a href="#news" className="group grid gap-5 sm:grid-cols-2 sm:items-center">
+              <div className="relative aspect-4/3 w-full overflow-hidden rounded-xl">
+                <Image
+                  src={featuredNews.image}
+                  alt=""
+                  fill
+                  sizes="(min-width: 640px) 40vw, 90vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-widest text-maroon">{featuredNews.category}</p>
+                <h3 className="mt-2 font-display text-2xl font-semibold leading-snug transition-colors group-hover:text-maroon">
+                  {featuredNews.title}
+                </h3>
+                <p className="mt-2 text-sm text-charcoal-mute">{featuredNews.date}</p>
+              </div>
+            </a>
 
             <ul className="mt-10 divide-y divide-rule border-t border-rule">
               {news.map((n, i) => (
                 <li key={n.id}>
                   <Reveal delay={i * 60}>
                     <a href="#news" className="group flex items-center gap-5 py-5">
-                      <div className="relative size-20 shrink-0 overflow-hidden rounded-md">
+                      <div className="relative size-20 shrink-0 overflow-hidden rounded-lg">
                         <Image src={n.image} alt="" fill sizes="80px" className="object-cover" />
                       </div>
                       <div className="min-w-0">

@@ -19,7 +19,7 @@ export function Priorities() {
       <div aria-hidden className="absolute inset-0 bg-linear-to-b from-navy via-navy/95 to-navy" />
 
       <Container className="relative">
-        <SectionHeading tone="onNavy" eyebrow="My Priorities" title="What matters to me">
+        <SectionHeading tone="onNavy" title="What matters to me">
           <p>Five commitments guiding the work ahead for Nawalparasi-1.</p>
         </SectionHeading>
 
@@ -28,7 +28,7 @@ export function Priorities() {
             const Icon = p.icon;
             return (
               <Reveal key={p.title} delay={i * 70}>
-                <article className="group h-full rounded-md border border-rule-on-navy bg-cream/[0.03] p-6 transition-colors hover:border-gold/50 hover:bg-cream/[0.06]">
+                <article className="group h-full rounded-xl border border-rule-on-navy bg-cream/[0.03] p-6 transition-colors hover:border-gold/50 hover:bg-cream/[0.06]">
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-semibold tabular-nums text-gold">{p.index}</span>
                     <Icon aria-hidden size={20} className="text-gold transition-transform group-hover:scale-110" />

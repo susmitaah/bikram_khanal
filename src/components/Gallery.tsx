@@ -21,12 +21,7 @@ export function Gallery() {
   return (
     <section id="gallery" className="border-b border-rule-on-navy bg-navy py-20 text-cream sm:py-28">
       <Container>
-        <SectionHeading
-          tone="onNavy"
-          eyebrow="Photo Journal"
-          title="Moments from the Journey"
-          align="center"
-        >
+        <SectionHeading tone="onNavy" title="Moments from the Journey" align="center">
           <p>A look at public meetings, community visits, events and the people behind the work.</p>
         </SectionHeading>
 
@@ -36,7 +31,7 @@ export function Gallery() {
               <button
                 type="button"
                 onClick={() => open(item)}
-                className="group relative block size-full overflow-hidden rounded-md bg-cream/5 shadow-lg"
+                className="group relative block size-full overflow-hidden rounded-xl bg-cream/5 shadow-card"
               >
                 <Image
                   src={item.src}
