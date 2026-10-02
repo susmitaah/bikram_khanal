@@ -9,7 +9,7 @@ export type L = { np: string; en: string };
 
 const STORAGE_KEY = "bk-lang";
 const CHANGE_EVENT = "bk-lang-change";
-const DEFAULT_LANG: Lang = "np";
+const DEFAULT_LANG: Lang = "en";
 
 const NP_DIGITS = ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"];
 

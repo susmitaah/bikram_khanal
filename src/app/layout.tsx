@@ -20,15 +20,15 @@ const notoSerifDevanagari = Noto_Serif_Devanagari({
 });
 
 export const metadata: Metadata = {
-  title: "बिक्रम खनाल | Bikram Khanal — नवलपरासी-१",
+  title: "Bikram Khanal | Member, House of Representatives — Nawalparasi-1",
   description:
-    "माननीय बिक्रम खनाल, प्रतिनिधि सभा सदस्य, नवलपरासी-१। जनसेवाको यात्रा — प्राथमिकता, काम र सम्पर्कका तरिका।",
+    "Hon. Bikram Khanal, Member of the House of Representatives for Nawalparasi-1, Nepal. A public-service portfolio: priorities, work, journey and ways to connect.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="ne"
+      lang="en"
       className={`${GeistSans.variable} ${mukta.variable} ${notoSerifDevanagari.variable}`}
       suppressHydrationWarning
     >
