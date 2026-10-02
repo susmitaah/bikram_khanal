@@ -8,36 +8,47 @@ const options: Array<{ value: Lang; label: string }> = [
   { value: "en", label: "EN" },
 ];
 
-/**
- * A typographic switch, not a boxed pill toggle — the active language is
- * just set in maroon and semibold, like any other accented text on this
- * site, rather than a generic rounded-segmented-control UI widget.
- */
+/** A compact sliding switch — one clean capsule, a maroon indicator that
+ * glides to whichever language is active, rather than two separate
+ * buttons or plain inline text. */
 export function LanguageToggle({ dark, className }: { dark?: boolean; className?: string }) {
   const { lang, setLang } = useLang();
 
   return (
-    <div role="group" aria-label="Language / भाषा" className={cn("inline-flex items-center gap-2.5 text-sm", className)}>
-      {options.map((o, i) => (
-        <span key={o.value} className="flex items-center gap-2.5">
-          {i > 0 && <span aria-hidden className={cn("h-3 w-px", dark ? "bg-cream/25" : "bg-navy/20")} />}
-          <button
-            type="button"
-            onClick={() => setLang(o.value)}
-            aria-pressed={lang === o.value}
-            className={cn(
-              "transition-colors",
-              o.value === "np" && "font-devanagari",
-              lang === o.value
-                ? "font-semibold text-maroon"
-                : dark
-                  ? "text-cream/55 hover:text-cream"
-                  : "text-charcoal-mute hover:text-navy",
-            )}
-          >
-            {o.label}
-          </button>
-        </span>
+    <div
+      role="group"
+      aria-label="Language / भाषा"
+      className={cn(
+        "relative inline-flex rounded-full border p-1",
+        dark ? "border-cream/25 bg-cream/5" : "border-navy/15 bg-navy/[0.03]",
+        className,
+      )}
+    >
+      <span
+        aria-hidden
+        className={cn(
+          "absolute inset-y-1 left-1 w-18 rounded-full bg-maroon shadow-sm transition-transform duration-300 ease-out",
+          lang === "en" && "translate-x-18",
+        )}
+      />
+      {options.map((o) => (
+        <button
+          key={o.value}
+          type="button"
+          onClick={() => setLang(o.value)}
+          aria-pressed={lang === o.value}
+          className={cn(
+            "relative z-10 w-18 rounded-full py-1.5 text-sm font-medium transition-colors",
+            o.value === "np" && "font-devanagari",
+            lang === o.value
+              ? "text-cream"
+              : dark
+                ? "text-cream/60 hover:text-cream/80"
+                : "text-charcoal-soft hover:text-navy",
+          )}
+        >
+          {o.label}
+        </button>
       ))}
     </div>
   );
