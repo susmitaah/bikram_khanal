@@ -2,10 +2,9 @@
 
 import { useEffect, useState, type MouseEvent } from "react";
 import { Menu, X } from "lucide-react";
-import { nav, site, commonCopy } from "@/content/site";
+import { nav, site } from "@/content/site";
 import { useLang } from "@/i18n/useLang";
 import { Container } from "@/components/ui/Container";
-import { ButtonLink } from "@/components/ui/ButtonLink";
 import { LanguageToggle } from "@/components/ui/LanguageToggle";
 import { cn } from "@/lib/cn";
 
@@ -86,11 +85,8 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden shrink-0 items-center gap-4 lg:flex">
+        <div className="hidden shrink-0 lg:block">
           <LanguageToggle dark={!scrolled} />
-          <ButtonLink href="#contact" variant={scrolled ? "solid" : "ghost-light"} className="px-5 py-2.5 text-sm">
-            {t(commonCopy.getInTouch)}
-          </ButtonLink>
         </div>
 
         <div className="flex shrink-0 items-center gap-2 lg:hidden">
@@ -124,9 +120,6 @@ export function Navbar() {
                 {t(item.label)}
               </a>
             ))}
-            <ButtonLink href="#contact" className="mt-4 w-full justify-center" onClick={(e) => navigateMobile(e, "#contact")}>
-              {t(commonCopy.getInTouch)}
-            </ButtonLink>
           </Container>
         </nav>
       )}
