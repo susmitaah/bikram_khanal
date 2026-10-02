@@ -40,7 +40,6 @@ export function Transparency() {
   }, [query, category, status]);
 
   const totalBudget = rows.reduce((sum, p) => sum + (p.amount ?? 0), 0);
-  const hasSamples = projects.some((p) => p.sample);
 
   const money = (amount?: number) =>
     amount
@@ -57,14 +56,8 @@ export function Transparency() {
           </p>
         </SectionHeading>
 
-        {hasSamples && (
-          <p role="note" className="mt-8 inline-block rounded-md bg-gold/10 px-3 py-1.5 text-sm text-navy">
-            {t(copy.sampleNotice)}
-          </p>
-        )}
-
         {/* controls */}
-        <div className="mb-6 mt-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <div className="mb-6 mt-10 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <label className="relative block w-full lg:max-w-sm">
             <span className="sr-only">{t(copy.search)}</span>
             <Search

@@ -16,10 +16,6 @@ export const portalCopy = {
     np: "बोल्ने मात्र होइन, काम गरेर देखाउने।",
     en: "Work Shown, Not Just Work Promised.",
   } satisfies L,
-  sampleNotice: {
-    np: "यी आयोजना विवरण उदाहरणका लागि राखिएका नमूना हुन्। यकिन बजेट तथा ठेकेदार विवरण पुष्टि भएपछि अद्यावधिक गरिनेछ।",
-    en: "These project entries are illustrative samples. Verified budget and contractor details will replace them once confirmed.",
-  } satisfies L,
   search: { np: "आयोजना वा स्थान खोज्नुहोस्...", en: "Search projects or location..." } satisfies L,
   all: { np: "सबै", en: "All" } satisfies L,
   total: { np: "जम्मा आयोजना", en: "Total projects" } satisfies L,
@@ -69,10 +65,10 @@ export type Project = {
 
 /**
  * SAMPLE DATA — every entry here is illustrative, not a verified public
- * record. Replace with real, confirmed project/budget/contractor
- * information before this table is presented as fact. The sample
- * disclaimer banner (portalCopy.sampleNotice) stays visible as long as
- * any entry has sample: true.
+ * record (budget figures, contractor assignment). The on-page disclaimer
+ * that used to say so was removed at the owner's request; the sample
+ * flag and this comment stay as the remaining signal that these numbers
+ * need replacing with real, confirmed figures before they're accurate.
  */
 export const projects: Project[] = [
   {

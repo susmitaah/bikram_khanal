@@ -16,7 +16,6 @@ export const offices: Array<{
     },
     phone: site.contact.phone,
     email: site.contact.email,
-    hours: { np: "आइतबार–शुक्रबार, बिहान १०:०० – दिउँसो ४:००", en: "Sunday – Friday, 10:00 AM – 4:00 PM" },
   },
   {
     name: { np: "संसदीय कार्यालय", en: "Parliamentary Office" },
