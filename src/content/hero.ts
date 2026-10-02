@@ -14,5 +14,5 @@ export const heroCopy = {
     en: "Thank you to the 45,241 citizens of Nawalparasi-1 for choosing the path of transformation.",
   } satisfies L,
   ctaJourney: { np: "मेरो यात्रा", en: "My Journey" } satisfies L,
-  ctaWork: { np: "मेरो काम हेर्नुहोस्", en: "View My Work" } satisfies L,
+  ctaWork: { np: "मेरो काम", en: "My Work" } satisfies L,
 };
