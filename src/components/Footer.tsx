@@ -11,13 +11,13 @@ export function Footer() {
   const { t, num, lang } = useLang();
 
   return (
-    <footer className="bg-navy pt-16 text-cream/75">
-      <Container className="flex flex-col gap-10 pb-12 md:flex-row md:items-start md:justify-between">
+    <footer className="bg-navy pt-12 text-cream/75">
+      <Container className="flex flex-col gap-8 pb-10 md:flex-row md:items-center md:justify-between">
         <div>
-          <p className="font-display text-2xl font-semibold text-cream">
+          <a href="#home" className="inline-block font-display text-2xl font-semibold text-cream transition-opacity hover:opacity-80">
             {t(site.honorific)} {t(site.name)}
             {lang === "en" && <span className="font-devanagari ml-2 text-gold/80">बिक्रम खनाल</span>}
-          </p>
+          </a>
           <p className="mt-1.5 max-w-sm text-sm">{t(site.designation)}</p>
 
           <div className="mt-6 flex items-center gap-3">
@@ -40,9 +40,6 @@ export function Footer() {
         </div>
 
         <nav aria-label="Footer" className="flex flex-wrap gap-x-8 gap-y-3 text-sm md:justify-end">
-          <a href="#home" className="link-underline transition-colors hover:text-cream">
-            {t({ np: "गृहपृष्ठ", en: "Home" })}
-          </a>
           {nav.map((item) => (
             <a key={item.href} href={item.href} className="link-underline transition-colors hover:text-cream">
               {t(item.label)}
