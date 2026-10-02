@@ -50,10 +50,7 @@ export function Transparency() {
     <section id="transparency" className="border-b border-rule bg-cream-deep py-16 sm:py-24">
       <Container>
         <SectionHeading title={t(copy.title)}>
-          <p>{t(copy.intro)}</p>
-          <p className="mt-5 border-l-2 border-maroon pl-4 font-display text-xl italic text-navy">
-            “{t(copy.motto)}”
-          </p>
+          <p className="border-l-2 border-maroon pl-4 font-display text-xl italic text-navy">“{t(copy.motto)}”</p>
         </SectionHeading>
 
         {/* controls */}

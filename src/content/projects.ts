@@ -8,10 +8,6 @@ export const portalCopy = {
     np: "निर्वाचन क्षेत्र विकास तथा पारदर्शिता पोर्टल",
     en: "Constituency Development & Transparency Portal",
   } satisfies L,
-  intro: {
-    np: "तपाईंको क्षेत्रको बजेट कहाँ र कसरी खर्च हुँदैछ, यहाँ हेर्नुहोस्।",
-    en: "Check how your local budget is being utilized.",
-  } satisfies L,
   motto: {
     np: "बोल्ने मात्र होइन, काम गरेर देखाउने।",
     en: "Work Shown, Not Just Work Promised.",
