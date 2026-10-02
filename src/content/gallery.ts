@@ -18,7 +18,7 @@ const captions: Record<number, L> = {
   1: { np: "सार्वजनिक सम्बोधन", en: "Public address" },
   2: { np: "पाटन दरबार क्षेत्र", en: "Patan Durbar Square" },
   3: { np: "पशुपतिनाथ क्षेत्र", en: "Pashupatinath area" },
-  4: { np: "वडास्तरीय छलफल", en: "Ward-level discussion" },
+  4: { np: "माननीय बिक्रम खनाल", en: "Hon. Bikram Khanal" },
   5: { np: "काठमाडौं उपत्यका", en: "Kathmandu Valley" },
   6: { np: "स्थानीय आयोजना अवलोकन", en: "Local project visit" },
   7: { np: "अन्नपूर्ण पर्वतमाला", en: "Annapurna range" },

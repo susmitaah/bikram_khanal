@@ -19,9 +19,13 @@ const commons = (file: string, width = 1600) =>
 const picsum = (seed: string, w = 1600, h = 1067) => `https://picsum.photos/seed/${seed}/${w}/${h}`;
 
 export const images = {
-  /** The real portrait — not a placeholder. */
+  /** Real photos of him — not placeholders. `portrait` is the one he/his
+   * team supplied directly; `profile` is his own public Facebook page
+   * photo (downloaded and self-hosted rather than hotlinked, since
+   * Facebook's CDN URLs are signed and expire). */
   bikram: {
     portrait: "/images/bikram-khanal.jpg",
+    profile: "/images/bikram-khanal-profile.jpg",
   },
 
   hero: {
@@ -51,7 +55,7 @@ export const images = {
     featured: commons("Public_speaking.jpg", 1600),
     infrastructure: picsum("news-infrastructure", 900, 700),
     community: commons("Community_meeting.jpg", 900),
-    media: picsum("news-media", 900, 700),
+    media: "/images/bikram-khanal-profile.jpg",
   },
 
   journey: {
@@ -67,7 +71,7 @@ export const images = {
     { src: commons("Public_speaking.jpg", 1200), tall: false, category: "Public Events" },
     { src: commons("Patan_Durbar_Square-2644.jpg", 1200), tall: false, category: "Nepal" },
     { src: commons("Pashupatinath_Temple.jpg", 1200), tall: true, category: "Nepal" },
-    { src: picsum("gallery-meeting", 1200, 900), tall: false, category: "Meetings" },
+    { src: "/images/bikram-khanal-profile.jpg", tall: false, category: "Profile" },
     { src: commons("Kathmandu_valley.jpg", 1200), tall: false, category: "Nepal" },
     { src: picsum("gallery-project", 1200, 1500), tall: true, category: "Projects" },
     { src: commons("Annapurna_range.jpg", 1200), tall: false, category: "Nepal" },
