@@ -5,12 +5,16 @@ import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { featuredNews, news as fallbackNews, newsCopy } from "@/content/news";
 import { images } from "@/lib/images";
+import { site } from "@/content/site";
 import type { LiveNewsItem } from "@/app/api/news/route";
 import { useLang } from "@/i18n/useLang";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
-const VIEW_ALL_URL = "https://news.google.com/search?q=Bikram%20Khanal%20Nawalparasi";
+// A Google News search page can surface unrelated top stories alongside (or
+// instead of) real matches, and its UI/branding is out of our control.
+// His own Facebook page is the one destination that's always on-topic.
+const VIEW_ALL_URL = site.contact.facebook;
 const PLACEHOLDER_IMAGES = [images.news.featured, images.news.community, images.news.infrastructure, images.news.media];
 
 type FetchState = "loading" | "live" | "fallback";
