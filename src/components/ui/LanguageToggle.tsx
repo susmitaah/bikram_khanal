@@ -8,36 +8,36 @@ const options: Array<{ value: Lang; label: string }> = [
   { value: "en", label: "EN" },
 ];
 
+/**
+ * A typographic switch, not a boxed pill toggle — the active language is
+ * just set in maroon and semibold, like any other accented text on this
+ * site, rather than a generic rounded-segmented-control UI widget.
+ */
 export function LanguageToggle({ dark, className }: { dark?: boolean; className?: string }) {
   const { lang, setLang } = useLang();
 
   return (
-    <div
-      role="group"
-      aria-label="Language / भाषा"
-      className={cn(
-        "inline-flex rounded-full border p-0.5 text-sm",
-        dark ? "border-cream/30" : "border-navy/20",
-        className,
-      )}
-    >
-      {options.map((o) => (
-        <button
-          key={o.value}
-          type="button"
-          onClick={() => setLang(o.value)}
-          aria-pressed={lang === o.value}
-          className={cn(
-            "rounded-full px-3 py-1 transition-colors",
-            lang === o.value
-              ? "bg-maroon text-cream"
-              : dark
-                ? "text-cream/70 hover:text-cream"
-                : "text-charcoal-soft hover:text-navy",
-          )}
-        >
-          {o.label}
-        </button>
+    <div role="group" aria-label="Language / भाषा" className={cn("inline-flex items-center gap-2.5 text-sm", className)}>
+      {options.map((o, i) => (
+        <span key={o.value} className="flex items-center gap-2.5">
+          {i > 0 && <span aria-hidden className={cn("h-3 w-px", dark ? "bg-cream/25" : "bg-navy/20")} />}
+          <button
+            type="button"
+            onClick={() => setLang(o.value)}
+            aria-pressed={lang === o.value}
+            className={cn(
+              "transition-colors",
+              o.value === "np" && "font-devanagari",
+              lang === o.value
+                ? "font-semibold text-maroon"
+                : dark
+                  ? "text-cream/55 hover:text-cream"
+                  : "text-charcoal-mute hover:text-navy",
+            )}
+          >
+            {o.label}
+          </button>
+        </span>
       ))}
     </div>
   );
