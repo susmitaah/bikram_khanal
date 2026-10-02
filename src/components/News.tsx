@@ -6,24 +6,20 @@ import { featuredNews, news, newsCopy } from "@/content/news";
 import { useLang } from "@/i18n/useLang";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Reveal } from "@/components/ui/Reveal";
 
 export function News() {
   const { t } = useLang();
 
   return (
-    <section id="news" className="border-b border-rule bg-cream py-20 sm:py-28">
+    <section id="news" className="border-b border-rule bg-cream py-16 sm:py-24">
       <Container>
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <SectionHeading title={t(newsCopy.title)}>
               <p>{t(newsCopy.intro)}</p>
             </SectionHeading>
-            <a
-              href="#news"
-              className="group link-underline mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy"
-            >
-              {t(newsCopy.viewAll)} <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
+            <a href="#news" className="group mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy hover:text-maroon">
+              {t(newsCopy.viewAll)} <ArrowRight size={15} strokeWidth={1.5} className="transition-transform group-hover:translate-x-1" />
             </a>
           </div>
 
@@ -50,24 +46,20 @@ export function News() {
             </a>
 
             <ul className="mt-10 divide-y divide-rule border-t border-rule">
-              {news.map((n, i) => (
+              {news.map((n) => (
                 <li key={n.id}>
-                  <Reveal delay={i * 60}>
-                    <a href="#news" className="group flex items-center gap-5 py-5">
-                      <div className="relative size-20 shrink-0 overflow-hidden rounded-lg">
-                        <Image src={n.image} alt="" fill sizes="80px" className="object-cover" />
-                      </div>
-                      <div className="min-w-0">
-                        <p className="text-xs font-semibold uppercase tracking-widest text-maroon">
-                          {t(n.category)}
-                        </p>
-                        <h4 className="mt-1 truncate font-display text-base font-semibold transition-colors group-hover:text-maroon">
-                          {t(n.title)}
-                        </h4>
-                        <p className="mt-1 text-sm text-charcoal-mute">{t(n.date)}</p>
-                      </div>
-                    </a>
-                  </Reveal>
+                  <a href="#news" className="group flex items-center gap-5 py-5">
+                    <div className="relative size-20 shrink-0 overflow-hidden rounded-lg">
+                      <Image src={n.image} alt="" fill sizes="80px" className="object-cover" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-xs font-semibold uppercase tracking-widest text-maroon">{t(n.category)}</p>
+                      <h4 className="mt-1 truncate font-display text-base font-semibold transition-colors group-hover:text-maroon">
+                        {t(n.title)}
+                      </h4>
+                      <p className="mt-1 text-sm text-charcoal-mute">{t(n.date)}</p>
+                    </div>
+                  </a>
                 </li>
               ))}
             </ul>

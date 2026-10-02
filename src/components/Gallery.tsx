@@ -7,7 +7,6 @@ import { gallery, galleryCopy, type GalleryItem } from "@/content/gallery";
 import { useLang } from "@/i18n/useLang";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Reveal } from "@/components/ui/Reveal";
 import { cn } from "@/lib/cn";
 
 export function Gallery() {
@@ -21,7 +20,7 @@ export function Gallery() {
   };
 
   return (
-    <section id="gallery" className="border-b border-rule-on-navy bg-navy py-20 text-cream sm:py-28">
+    <section id="gallery" className="border-b border-rule-on-navy bg-navy py-24 text-cream sm:py-32">
       <Container>
         <SectionHeading tone="onNavy" title={t(galleryCopy.title)} align="center">
           <p>{t(galleryCopy.intro)}</p>
@@ -29,7 +28,7 @@ export function Gallery() {
 
         <div className="mt-14 grid auto-rows-40 grid-cols-2 gap-4 sm:auto-rows-48 md:grid-cols-4">
           {gallery.map((item, i) => (
-            <Reveal key={item.src + i} delay={(i % 4) * 60} className={cn(item.tall && "row-span-2")}>
+            <div key={item.src + i} className={cn(item.tall && "row-span-2")}>
               <button
                 type="button"
                 onClick={() => open(item)}
@@ -50,16 +49,13 @@ export function Gallery() {
                   {t(item.caption)}
                 </span>
               </button>
-            </Reveal>
+            </div>
           ))}
         </div>
 
         <div className="mt-10 text-center">
-          <a
-            href="#gallery"
-            className="group link-underline inline-flex items-center gap-1.5 text-sm font-semibold text-gold"
-          >
-            {t(galleryCopy.viewAll)} <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
+          <a href="#gallery" className="group inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-cream">
+            {t(galleryCopy.viewAll)} <ArrowRight size={15} strokeWidth={1.5} className="transition-transform group-hover:translate-x-1" />
           </a>
         </div>
       </Container>
@@ -82,7 +78,7 @@ export function Gallery() {
               className="absolute right-2 top-2 rounded-full bg-navy/70 p-2 text-cream transition-colors hover:bg-navy"
               aria-label={t(galleryCopy.close)}
             >
-              <X size={18} />
+              <X size={18} strokeWidth={1.5} />
             </button>
           </figure>
         )}

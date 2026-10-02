@@ -6,7 +6,6 @@ import { socials } from "@/content/site";
 import { useLang } from "@/i18n/useLang";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Reveal } from "@/components/ui/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 import { FacebookIcon } from "@/components/ui/SocialIcons";
 
@@ -24,36 +23,34 @@ export function Contact() {
 
         <div className="mt-14 grid gap-12 lg:grid-cols-12">
           <div className="space-y-8 lg:col-span-5">
-            {offices.map((office, i) => (
-              <Reveal key={office.name.en} delay={i * 90}>
-                <div className="rounded-xl border border-rule bg-cream p-6">
-                  <h3 className="flex items-center gap-2 font-display text-lg font-semibold text-navy">
-                    <MapPin size={18} className="text-maroon" />
-                    {t(office.name)}
-                  </h3>
-                  <p className="mt-3 text-[15px] leading-relaxed text-charcoal-soft">{t(office.address)}</p>
-                  <div className="mt-4 space-y-2 text-sm">
-                    {office.phone && (
-                      <a href={`tel:${office.phone}`} className="flex items-center gap-2 text-charcoal hover:text-maroon">
-                        <Phone size={15} className="text-charcoal-mute" /> {office.phone}
-                      </a>
-                    )}
-                    {office.email && (
-                      <a
-                        href={`mailto:${office.email}`}
-                        className="flex items-center gap-2 text-charcoal hover:text-maroon"
-                      >
-                        <Mail size={15} className="text-charcoal-mute" /> {office.email}
-                      </a>
-                    )}
-                    {office.hours && (
-                      <p className="flex items-center gap-2 text-charcoal-soft">
-                        <Clock size={15} className="text-charcoal-mute" /> {t(office.hours)}
-                      </p>
-                    )}
-                  </div>
+            {offices.map((office) => (
+              <div key={office.name.en} className="rounded-xl border border-rule bg-cream p-6">
+                <h3 className="flex items-center gap-2 font-display text-lg font-semibold text-navy">
+                  <MapPin size={18} strokeWidth={1.5} className="text-maroon" />
+                  {t(office.name)}
+                </h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-charcoal-soft">{t(office.address)}</p>
+                <div className="mt-4 space-y-2 text-sm">
+                  {office.phone && (
+                    <a href={`tel:${office.phone}`} className="flex items-center gap-2 text-charcoal hover:text-maroon">
+                      <Phone size={15} strokeWidth={1.5} className="text-charcoal-mute" /> {office.phone}
+                    </a>
+                  )}
+                  {office.email && (
+                    <a
+                      href={`mailto:${office.email}`}
+                      className="flex items-center gap-2 text-charcoal hover:text-maroon"
+                    >
+                      <Mail size={15} strokeWidth={1.5} className="text-charcoal-mute" /> {office.email}
+                    </a>
+                  )}
+                  {office.hours && (
+                    <p className="flex items-center gap-2 text-charcoal-soft">
+                      <Clock size={15} strokeWidth={1.5} className="text-charcoal-mute" /> {t(office.hours)}
+                    </p>
+                  )}
                 </div>
-              </Reveal>
+              </div>
             ))}
 
             <div className="flex items-center gap-3 pt-2">

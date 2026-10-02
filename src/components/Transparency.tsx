@@ -48,7 +48,7 @@ export function Transparency() {
       : "—";
 
   return (
-    <section id="transparency" className="border-b border-rule bg-cream-deep py-20 sm:py-28">
+    <section id="transparency" className="border-b border-rule bg-cream-deep py-16 sm:py-24">
       <Container>
         <SectionHeading title={t(copy.title)}>
           <p>{t(copy.intro)}</p>
@@ -69,6 +69,7 @@ export function Transparency() {
             <span className="sr-only">{t(copy.search)}</span>
             <Search
               size={17}
+              strokeWidth={1.5}
               className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-charcoal-mute"
             />
             <input

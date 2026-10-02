@@ -9,7 +9,6 @@ import { useLang } from "@/i18n/useLang";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Reveal } from "@/components/ui/Reveal";
 
 export function About() {
   const { t } = useLang();
@@ -36,24 +35,20 @@ export function About() {
             </SectionHeading>
             <ButtonLink href="#journey" variant="outline" className="mt-8">
               {t(aboutCopy.readStory)}{" "}
-              <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" />
+              <ArrowRight size={17} strokeWidth={1.5} className="transition-transform group-hover:translate-x-1" />
             </ButtonLink>
 
             <ol className="relative mt-14">
               <span aria-hidden className="absolute bottom-2 left-1.25 top-2 w-px bg-rule" />
-              {bioTimeline.map((item, i) => (
+              {bioTimeline.map((item) => (
                 <li key={item.title.en} className="relative pb-10 pl-9 last:pb-0">
                   <span
                     aria-hidden
                     className="absolute left-0 top-1.5 size-2.75 rounded-full border-2 border-maroon bg-cream"
                   />
-                  <Reveal delay={i * 70}>
-                    <p className="text-sm font-semibold uppercase tracking-wide text-maroon">{t(item.year)}</p>
-                    <h3 className="mt-1 font-display text-xl font-semibold">{t(item.title)}</h3>
-                    <p className="mt-2 max-w-prose text-[15px] leading-relaxed text-charcoal-soft">
-                      {t(item.body)}
-                    </p>
-                  </Reveal>
+                  <p className="text-sm font-semibold uppercase tracking-wide text-maroon">{t(item.year)}</p>
+                  <h3 className="mt-1 font-display text-xl font-semibold">{t(item.title)}</h3>
+                  <p className="mt-2 max-w-prose text-[15px] leading-relaxed text-charcoal-soft">{t(item.body)}</p>
                 </li>
               ))}
             </ol>
