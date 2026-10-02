@@ -39,7 +39,7 @@ export function Footer() {
           </div>
         </div>
 
-        <nav aria-label="Footer" className="grid grid-cols-2 gap-x-10 gap-y-2 text-sm sm:grid-cols-3">
+        <nav aria-label="Footer" className="flex flex-wrap gap-x-8 gap-y-3 text-sm md:justify-end">
           <a href="#home" className="link-underline transition-colors hover:text-cream">
             {t({ np: "गृहपृष्ठ", en: "Home" })}
           </a>

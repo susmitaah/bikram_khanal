@@ -38,7 +38,18 @@ export function About() {
               <ArrowRight size={17} strokeWidth={1.5} className="transition-transform group-hover:translate-x-1" />
             </ButtonLink>
 
-            <ol className="relative mt-14">
+            <div className="mt-12 space-y-6 border-t border-rule pt-10">
+              {Object.values(aboutCopy.sections).map((section) => (
+                <div key={section.label.en}>
+                  <p className="text-sm font-semibold uppercase tracking-wide text-maroon">{t(section.label)}</p>
+                  <p className="mt-1.5 max-w-prose text-[15px] leading-relaxed text-charcoal-soft">
+                    {t(section.body)}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <ol className="relative mt-12">
               <span aria-hidden className="absolute bottom-2 left-1.25 top-2 w-px bg-rule" />
               {bioTimeline.map((item) => (
                 <li key={item.title.en} className="relative pb-10 pl-9 last:pb-0">

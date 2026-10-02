@@ -14,4 +14,32 @@ export const aboutCopy = {
     np: "बौद्धनाथ स्तूप, काठमाडौं उपत्यका",
     en: "Boudhanath Stupa, Kathmandu Valley",
   } satisfies L,
+
+  /**
+   * Early Life / Education / Entry into Politics, as short labeled prose —
+   * the structure follows how leader-biography pages are commonly organized
+   * (introduction, then early life, education, entry into politics, then a
+   * dated timeline of later milestones). Every fact here is one already
+   * verified elsewhere on this site (Wikipedia / eKantipur) — nothing new.
+   */
+  sections: {
+    earlyLife: {
+      label: { np: "प्रारम्भिक जीवन", en: "Early Life" } satisfies L,
+      body: {
+        np: "गोकर्ण खनालका छोराको रूपमा करिब २०२७ सालतिर, हालको बर्दघाट नगरपालिका, नवलपरासी (बर्दघाट सुस्ता पश्चिम) मा जन्मनुभयो।",
+        en: "Born to Gokarna Khanal around 2027 BS, in what is now Bardaghat Municipality, Nawalparasi (Bardaghat Susta West).",
+      } satisfies L,
+    },
+    education: {
+      label: { np: "शिक्षा", en: "Education" } satisfies L,
+      body: { np: "स्नातक तहको शिक्षा पूरा गर्नुभयो।", en: "Completed a graduate degree." } satisfies L,
+    },
+    entryIntoPolitics: {
+      label: { np: "राजनीतिमा प्रवेश", en: "Entry into Politics" } satisfies L,
+      body: {
+        np: "२०७० सालअघि नेपाली कांग्रेसको लुम्बिनी प्रदेश महासचिवको रूपमा सार्वजनिक जीवन सुरु गर्नुभयो।",
+        en: "Entered public life before 2070 BS, serving as Nepali Congress's Lumbini Province general secretary.",
+      } satisfies L,
+    },
+  },
 };
