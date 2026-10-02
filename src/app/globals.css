@@ -48,6 +48,10 @@ html {
   color-scheme: light;
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
+  /* guards against any single element (a decorative offset, a translate,
+     an unbroken long word) ever forcing a horizontal scrollbar on narrow
+     viewports — standard practice, not a crutch for one specific bug */
+  overflow-x: hidden;
 }
 
 body {
@@ -57,6 +61,7 @@ body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* thin scrollbar, everywhere */

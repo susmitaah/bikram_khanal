@@ -82,7 +82,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex items-center gap-2 rounded-sm bg-maroon px-6 py-3 text-[15px] font-medium text-cream shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-maroon-deep hover:shadow-md active:translate-y-0 active:shadow-none disabled:pointer-events-none disabled:opacity-60"
+          className="inline-flex items-center gap-2 rounded-sm bg-maroon px-6 py-3.5 text-[15px] font-medium text-cream shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-maroon-deep hover:shadow-md active:translate-y-0 active:shadow-none disabled:pointer-events-none disabled:opacity-60"
         >
           {status === "sending" ? t(copy.form.sending) : t(copy.form.submit)}
         </button>

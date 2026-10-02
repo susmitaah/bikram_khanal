@@ -30,7 +30,7 @@ export function Hero() {
       <Container className="relative grid items-center gap-16 pt-28 pb-16 lg:grid-cols-12 lg:pt-20">
         <div className="lg:col-span-7">
           <Reveal>
-            <h1 className="font-display text-[clamp(2.5rem,5.2vw,4.25rem)] font-semibold leading-[1.08] tracking-tight text-cream">
+            <h1 className="break-words font-display text-[clamp(2.1rem,5.2vw,4.25rem)] font-semibold leading-[1.08] tracking-tight text-cream">
               {t(heroCopy.headline.line1)}
               <br />
               <span className="italic text-cream/90">{t(heroCopy.headline.line2)}</span>
