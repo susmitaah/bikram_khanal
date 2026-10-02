@@ -4,6 +4,7 @@ import { Stats } from "@/components/Stats";
 import { About } from "@/components/About";
 import { Priorities } from "@/components/Priorities";
 import { Work } from "@/components/Work";
+import { Transparency } from "@/components/Transparency";
 import { Journey } from "@/components/Journey";
 import { News } from "@/components/News";
 import { Gallery } from "@/components/Gallery";
@@ -20,6 +21,7 @@ export default function Home() {
         <About />
         <Priorities />
         <Work />
+        <Transparency />
         <Journey />
         <News />
         <Gallery />

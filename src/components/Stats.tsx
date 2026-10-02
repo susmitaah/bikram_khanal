@@ -1,6 +1,7 @@
 "use client";
 
 import { stats, statsCopy } from "@/content/stats";
+import { heroCopy } from "@/content/hero";
 import { useLang } from "@/i18n/useLang";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -17,6 +18,11 @@ export function Stats() {
             <SectionHeading title={t(statsCopy.title)}>
               <p>{t(statsCopy.intro)}</p>
             </SectionHeading>
+            <Reveal delay={80}>
+              <blockquote className="mt-8 border-l-2 border-maroon py-1 pl-5 font-display text-xl italic leading-snug text-navy">
+                “{t(heroCopy.victoryNote)}”
+              </blockquote>
+            </Reveal>
           </div>
 
           <div className="lg:col-span-7">

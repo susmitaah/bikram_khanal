@@ -11,6 +11,7 @@
   --maroon: #a61b2b;
   --maroon-deep: #7e1420;
   --gold: #b08d57;
+  --field: #3d6b4f;
   --rule: #e4dfd3;
   --rule-on-navy: rgb(255 255 255 / 0.14);
 
@@ -28,6 +29,7 @@
   --color-maroon: var(--maroon);
   --color-maroon-deep: var(--maroon-deep);
   --color-gold: var(--gold);
+  --color-field: var(--field);
   --color-rule: var(--rule);
   --color-rule-on-navy: var(--rule-on-navy);
 

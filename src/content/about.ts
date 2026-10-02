@@ -6,8 +6,8 @@ export const aboutCopy = {
     en: "From humble beginnings to public service",
   } satisfies L,
   intro: {
-    np: "बर्दघाट सुस्ता पश्चिम, नवलपरासीमा हुर्किनुभएको उहाँको जनसेवाको यात्रा स्थानीय पार्टी कामबाट सुरु भई, नेपालको दोस्रो संविधान सभामा निर्वाचित हुनुभयो — र दशकौंपछि, नवलपरासी-१ को प्रतिनिधि सभा सदस्यसम्म पुगेको छ।",
-    en: "Raised in Bardaghat Susta West, Nawalparasi, his path to public life began in local party work before he was elected to Nepal's Second Constituent Assembly — and, decades on, to the House of Representatives for Nawalparasi-1.",
+    np: "माननीय बिक्रम खनाल विगत ४० वर्षदेखि नेपालको लोकतान्त्रिक आन्दोलन र सार्वजनिक सेवामा समर्पित एक अनुभवी नेता हुनुहुन्छ।",
+    en: "Hon. Bikram Khanal is a transformative political leader who has stood at the forefront of Nepal's democratic evolution for over 40 years.",
   } satisfies L,
   readStory: { np: "मेरो पूरा कथा पढ्नुहोस्", en: "Read My Full Story" } satisfies L,
   imageAlt: {
