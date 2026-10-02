@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
-import { Mukta, Noto_Serif_Devanagari, Playfair_Display } from "next/font/google";
+import { Mukta, Noto_Serif_Devanagari } from "next/font/google";
 import { HtmlLang } from "@/i18n/HtmlLang";
 import "./globals.css";
 
@@ -10,15 +10,9 @@ const mukta = Mukta({
   weight: ["400", "500", "600", "700"],
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  style: ["normal", "italic"],
-});
-
-/** Deliberate aesthetic Devanagari display face — paired with Playfair Display,
- * not just invisible fallback duty. Used for the priority labels and his name. */
+/** Deliberate aesthetic Devanagari display face for script-specific accents
+ * (priority labels, his name) — not just invisible fallback duty. Everything
+ * Latin on the site runs on Geist; Geist has no Devanagari glyphs at all. */
 const notoSerifDevanagari = Noto_Serif_Devanagari({
   variable: "--font-devanagari-serif",
   subsets: ["devanagari"],
@@ -35,7 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="ne"
-      className={`${GeistSans.variable} ${mukta.variable} ${playfair.variable} ${notoSerifDevanagari.variable}`}
+      className={`${GeistSans.variable} ${mukta.variable} ${notoSerifDevanagari.variable}`}
       suppressHydrationWarning
     >
       {/* HtmlLang overwrites `lang` on mount from a client-only (localStorage)

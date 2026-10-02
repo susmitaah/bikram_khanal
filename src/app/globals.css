@@ -33,10 +33,10 @@
   --color-rule: var(--rule);
   --color-rule-on-navy: var(--rule-on-navy);
 
-  /* Geist for body/UI; Playfair Display for headings. Both fall through to
-     Mukta for any Devanagari glyph (the priority labels, decorative text). */
-  --font-sans: var(--font-geist-sans), var(--font-mukta), system-ui, sans-serif;
-  --font-display: var(--font-playfair), var(--font-mukta), Georgia, serif;
+  /* One typeface sitewide — Geist, for both body/UI and headings — falling
+     through to Mukta for any Devanagari glyph Geist doesn't cover. */
+  --font-sans: var(--font-geist-sans), var(--font-mukta), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-geist-sans), var(--font-mukta), ui-sans-serif, system-ui, sans-serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -86,8 +86,9 @@ body {
   outline-offset: 3px;
 }
 
-/* Deliberate Devanagari display accent — pairs with Playfair Display.
-   Needs a touch more line-height for matras. */
+/* Deliberate Devanagari display accent (priority labels, his name) — the
+   one intentional exception to Geist-everywhere, since Geist can't render
+   Devanagari at all. Needs a touch more line-height for matras. */
 .font-devanagari {
   font-family: var(--font-devanagari-serif), var(--font-mukta), serif;
   line-height: 1.3;
