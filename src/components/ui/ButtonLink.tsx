@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { MouseEventHandler, ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 type Variant = "solid" | "outline" | "ghost-light";
@@ -14,13 +14,15 @@ type ButtonLinkProps = {
   variant?: Variant;
   external?: boolean;
   className?: string;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
   children: ReactNode;
 };
 
-export function ButtonLink({ href, variant = "solid", external, className, children }: ButtonLinkProps) {
+export function ButtonLink({ href, variant = "solid", external, className, onClick, children }: ButtonLinkProps) {
   return (
     <a
       href={href}
+      onClick={onClick}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className={cn(
         "group inline-flex items-center gap-2 rounded-sm px-6 py-3.5 text-[15px] font-medium transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:shadow-none",

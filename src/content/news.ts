@@ -10,40 +10,46 @@ export const newsCopy = {
   viewAll: { np: "सबै समाचार हेर्नुहोस्", en: "View All News" } satisfies L,
 };
 
-/** SAMPLE CONTENT — placeholder news items, not specific real events. Replace before launch. */
+/**
+ * Real press coverage, linked to the original source. Headlines below are
+ * our own neutral paraphrase of each outlet's reporting (translated for the
+ * np field) — not a verbatim quote of either article.
+ */
 export const featuredNews = {
-  category: { np: "संसद", en: "Parliament" } satisfies L,
+  category: { np: "प्रोफाइल", en: "Profile" } satisfies L,
   title: {
-    np: "निर्वाचन क्षेत्र विकास प्राथमिकताबारे अद्यावधिक",
-    en: "Update on Constituency Development Priorities",
+    np: "बिक्रम खनालको राजनीतिक यात्रा",
+    en: "Bikram Khanal's Political Journey",
   } satisfies L,
-  date: { np: "२०२६", en: "2026" } satisfies L,
+  date: { np: "मार्च २०२६", en: "March 2026" } satisfies L,
+  source: "eKantipur",
+  url: "https://ekantipur.com/lumbini-pradesh/2026/03/08/en/bikram-khanals-political-journey-from-nevisangh-district-president-to-rashtriya-swayamsevak-sangh-to-parliament-43-41.html",
   image: images.news.featured,
 };
 
-export const news: Array<{ id: string; category: L; title: L; date: L; image: string }> = [
+export const news: Array<{ id: string; category: L; title: L; date: L; source: string; url: string; image: string }> = [
   {
-    id: "infrastructure-plan",
-    category: { np: "पूर्वाधार", en: "Infrastructure" },
+    id: "elected",
+    category: { np: "निर्वाचन", en: "Election" },
     title: {
-      np: "बर्दघाट सुस्ता पश्चिमका लागि सडक स्तरोन्नति प्रस्ताव",
-      en: "Road Upgrade Proposal for Bardaghat Susta West",
+      np: "राष्ट्रिय स्वतन्त्र पार्टीका खनाल नवलपरासी पश्चिमबाट निर्वाचित",
+      en: "RSP's Khanal Elected from Nawalparasi West",
     },
     date: { np: "२०२६", en: "2026" },
-    image: images.news.infrastructure,
-  },
-  {
-    id: "community",
-    category: { np: "समुदाय", en: "Community" },
-    title: { np: "नवलपरासी-१ मा सामुदायिक सहभागिता", en: "Community Engagement in Nawalparasi-1" },
-    date: { np: "२०२६", en: "2026" },
+    source: "Republica",
+    url: "https://myrepublica.nagariknetwork.com/news/rsp-candidate-khanal-elected-from-nawalparasi-west-27-50.html",
     image: images.news.community,
   },
   {
-    id: "media",
-    category: { np: "मिडिया", en: "Media" },
-    title: { np: "स्थानीय सञ्चारमाध्यमसँग अन्तर्वार्ता", en: "Interview Coverage — Local Media" },
-    date: { np: "२०२६", en: "2026" },
-    image: images.news.media,
+    id: "candidacy",
+    category: { np: "निर्वाचन", en: "Election" },
+    title: {
+      np: "खनाल नवलपरासी-१ बाट रास्वपा उम्मेदवार घोषित",
+      en: "Khanal Named RSP Candidate for Nawalparasi-1",
+    },
+    date: { np: "जनवरी २०२६", en: "January 2026" },
+    source: "eKantipur",
+    url: "https://ekantipur.com/politics/2026/01/19/en/congress-lumbini-province-general-secretary-khanal-is-the-rashtriya-swayamsevak-sangh-rss-candidate-from-west-nawalparasi-1-56-07.html",
+    image: images.news.infrastructure,
   },
 ];

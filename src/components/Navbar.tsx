@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { Menu, X } from "lucide-react";
 import { nav, site, commonCopy } from "@/content/site";
 import { useLang } from "@/i18n/useLang";
@@ -21,6 +21,24 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  /**
+   * The mobile dropdown adds its own height to the fixed header while open.
+   * A plain <a href="#x"> click lets the browser compute the scroll target
+   * against that taller, still-expanded header at the same moment React
+   * collapses it back to 80px — a race that lands the scroll a dropdown's
+   * height short of the section. Close first, let the collapse paint, then
+   * scroll against the now-correct (and stable) header height.
+   */
+  const navigateMobile = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setOpen(false);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.querySelector(href)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  };
+
   return (
     <header
       className={cn(
@@ -32,7 +50,7 @@ export function Navbar() {
         <a
           href="#home"
           className="flex min-w-0 flex-col leading-tight transition-opacity hover:opacity-75"
-          onClick={() => setOpen(false)}
+          onClick={(e) => navigateMobile(e, "#home")}
         >
           <span
             className={cn(
@@ -100,13 +118,13 @@ export function Navbar() {
               <a
                 key={item.href}
                 href={item.href}
-                onClick={() => setOpen(false)}
+                onClick={(e) => navigateMobile(e, item.href)}
                 className="-mx-2 border-b border-rule/60 px-2 py-3.5 text-base text-charcoal transition-colors last:border-0 hover:bg-cream-deep hover:text-maroon"
               >
                 {t(item.label)}
               </a>
             ))}
-            <ButtonLink href="#contact" className="mt-4 w-full justify-center">
+            <ButtonLink href="#contact" className="mt-4 w-full justify-center" onClick={(e) => navigateMobile(e, "#contact")}>
               {t(commonCopy.getInTouch)}
             </ButtonLink>
           </Container>
