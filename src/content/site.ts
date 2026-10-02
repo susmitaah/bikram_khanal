@@ -25,14 +25,16 @@ export const socials: Array<{ label: string; href: string; icon: "facebook" }> =
   { label: "Facebook", href: site.contact.facebook, icon: "facebook" },
 ];
 
+/**
+ * Kept short on purpose — About, Priorities, Transparency and Contact are
+ * what a visitor actually comes to a representative's site for. Work,
+ * Journey, News and Gallery stay on the page (scroll, or jump via the
+ * Hero/About buttons) without adding to every-screen nav clutter.
+ */
 export const nav: Array<{ href: string; label: L }> = [
   { href: "#about", label: { np: "परिचय", en: "About" } },
-  { href: "#work", label: { np: "काम", en: "Work" } },
-  { href: "#transparency", label: { np: "पारदर्शिता", en: "Transparency" } },
   { href: "#priorities", label: { np: "प्राथमिकता", en: "Priorities" } },
-  { href: "#journey", label: { np: "यात्रा", en: "Journey" } },
-  { href: "#news", label: { np: "समाचार", en: "News" } },
-  { href: "#gallery", label: { np: "तस्बिर", en: "Gallery" } },
+  { href: "#transparency", label: { np: "पारदर्शिता", en: "Transparency" } },
   { href: "#contact", label: { np: "सम्पर्क", en: "Contact" } },
 ];
 

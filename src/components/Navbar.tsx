@@ -29,27 +29,37 @@ export function Navbar() {
       )}
     >
       <Container className="flex h-20 items-center justify-between gap-4">
-        <a href="#home" className="flex flex-col leading-tight transition-opacity hover:opacity-75" onClick={() => setOpen(false)}>
+        <a
+          href="#home"
+          className="flex min-w-0 flex-col leading-tight transition-opacity hover:opacity-75"
+          onClick={() => setOpen(false)}
+        >
           <span
             className={cn(
-              "font-display text-xl font-semibold transition-colors",
+              "truncate font-display text-xl font-semibold transition-colors",
               scrolled || open ? "text-navy" : "text-cream",
             )}
           >
             {t(site.name)}
           </span>
-          <span className={cn("text-xs transition-colors", scrolled || open ? "text-charcoal-soft" : "text-cream/70")}>
+          {/* full designation only once there's real room for it; the name alone carries the brand below that */}
+          <span
+            className={cn(
+              "hidden truncate text-xs transition-colors xl:block",
+              scrolled || open ? "text-charcoal-soft" : "text-cream/70",
+            )}
+          >
             {t(site.designation)}
           </span>
         </a>
 
-        <nav aria-label="Main" className="hidden items-center gap-8 lg:flex">
+        <nav aria-label="Main" className="hidden shrink-0 items-center gap-6 lg:flex xl:gap-8">
           {nav.map((item) => (
             <a
               key={item.href}
               href={item.href}
               className={cn(
-                "link-underline text-sm font-medium transition-colors",
+                "link-underline whitespace-nowrap text-sm font-medium transition-colors",
                 scrolled ? "text-charcoal-soft hover:text-navy" : "text-cream/85 hover:text-cream",
               )}
             >
@@ -58,14 +68,14 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-4 lg:flex">
+        <div className="hidden shrink-0 items-center gap-4 lg:flex">
           <LanguageToggle dark={!scrolled} />
           <ButtonLink href="#contact" variant={scrolled ? "solid" : "ghost-light"} className="px-5 py-2.5 text-sm">
             {t(commonCopy.getInTouch)}
           </ButtonLink>
         </div>
 
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex shrink-0 items-center gap-2 lg:hidden">
           <LanguageToggle dark={!scrolled && !open} />
           <button
             type="button"
