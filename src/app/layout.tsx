@@ -36,8 +36,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="ne"
       className={`${GeistSans.variable} ${mukta.variable} ${playfair.variable} ${notoSerifDevanagari.variable}`}
+      suppressHydrationWarning
     >
-      <body className="min-h-dvh bg-cream text-charcoal">
+      {/* HtmlLang overwrites `lang` on mount from a client-only (localStorage)
+          language preference, which legitimately differs from the server's
+          default render for returning visitors — same class of warning
+          next-themes' dark-mode flash runs into. suppressHydrationWarning
+          tells React this specific, expected mismatch is fine; it does not
+          hide other hydration bugs, which still throw normally. */}
+      <body className="min-h-dvh bg-cream text-charcoal" suppressHydrationWarning>
         <HtmlLang />
         {children}
       </body>
