@@ -5,8 +5,8 @@ export type ProjectStatus = "completed" | "ongoing" | "tendering" | "planned";
 
 export const portalCopy = {
   title: {
-    np: "निर्वाचन क्षेत्र विकास तथा पारदर्शिता पोर्टल",
-    en: "Constituency Development & Transparency Portal",
+    np: "विकास तथा पारदर्शिता पोर्टल",
+    en: "Development & Transparency Portal",
   } satisfies L,
   motto: {
     np: "बोल्ने मात्र होइन, काम गरेर देखाउने।",
