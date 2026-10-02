@@ -43,9 +43,11 @@ export async function sendContactMessage(payload: ContactPayload) {
 
   await transport.sendMail({
     to,
-    from: `"Website Contact Form" <${from}>`,
-    replyTo: `"${payload.name}" <${payload.email}>`,
-    subject: `[Website] ${payload.subject?.trim() || "New message from constituent"}`,
+    // object form lets nodemailer escape the name safely (quotes, commas, etc.
+    // in whatever a visitor typed) instead of hand-building the header string
+    from: { name: `${payload.name} (via Website)`, address: from },
+    replyTo: { name: payload.name, address: payload.email },
+    subject: `[Website] ${payload.subject?.trim() || `New message from ${payload.name}`}`,
     text: [
       `Name: ${payload.name}`,
       `Email: ${payload.email}`,
