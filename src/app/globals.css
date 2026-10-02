@@ -52,6 +52,12 @@ html {
      an unbroken long word) ever forcing a horizontal scrollbar on narrow
      viewports — standard practice, not a crutch for one specific bug */
   overflow-x: hidden;
+  /* Nepali and English text wrap to different total page heights, so the
+     vertical scrollbar's need (and width, on non-overlay-scrollbar systems
+     like Windows) can toggle on language switch — content visibly
+     widens/narrows by the scrollbar's width right as you toggle. Reserving
+     the gutter permanently means that space never changes either way. */
+  scrollbar-gutter: stable;
 }
 
 body {
