@@ -3,6 +3,7 @@
 :root {
   --cream: #f8f5ee;
   --cream-deep: #f0ead9;
+  --paper: #fffdf8;
   --navy: #102a43;
   --navy-deep: #0b1e30;
   --charcoal: #1f2933;
@@ -21,6 +22,7 @@
 @theme inline {
   --color-cream: var(--cream);
   --color-cream-deep: var(--cream-deep);
+  --color-paper: var(--paper);
   --color-navy: var(--navy);
   --color-navy-deep: var(--navy-deep);
   --color-charcoal: var(--charcoal);
@@ -68,6 +70,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+/* Typographic polish: balanced headings, no orphaned last words in copy. */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+p, li, blockquote {
+  text-wrap: pretty;
 }
 
 /* thin scrollbar, everywhere */
@@ -132,6 +142,22 @@ body {
 .reveal.is-revealed {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Temple-bell: swings from its hook, rings, rests. */
+.bell-swing {
+  transform-origin: 50% 6%;
+  animation: bell-swing 2.8s ease-in-out infinite;
+}
+.bell-swing-host:hover .bell-swing {
+  animation-duration: 1.2s;
+}
+@keyframes bell-swing {
+  0%, 100% { transform: rotate(0); }
+  15% { transform: rotate(14deg); }
+  35% { transform: rotate(-12deg); }
+  55% { transform: rotate(7deg); }
+  75% { transform: rotate(-3deg); }
 }
 
 /* animated underline for nav-style text links */

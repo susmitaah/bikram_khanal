@@ -20,7 +20,7 @@ const notoSerifDevanagari = Noto_Serif_Devanagari({
 });
 
 export const metadata: Metadata = {
-  title: "Bikram Khanal | Member, House of Representatives — Nawalparasi-1",
+  title: "Bikram Khanal | Member, House of Representatives - Nawalparasi-1",
   description:
     "Hon. Bikram Khanal, Member of the House of Representatives for Nawalparasi-1, Nepal. A public-service portfolio: priorities, work, journey and ways to connect.",
 };

@@ -4,10 +4,9 @@ import { images } from "@/lib/images";
 export const workCopy = {
   title: { np: "हालैका काम", en: "Recent Work" } satisfies L,
   intro: {
-    np: "सामुदायिक आयोजनादेखि संसदीय प्रयाससम्म — अर्थपूर्ण परिवर्तनका लागि गरिएका काम र पहलहरू।",
+    np: "सामुदायिक आयोजनादेखि संसदीय प्रयाससम्म, अर्थपूर्ण परिवर्तनका लागि गरिएका काम र पहलहरू।",
     en: "From community projects to legislative efforts, explore the work and initiatives focused on creating meaningful change.",
   } satisfies L,
-  viewAll: { np: "सबै काम हेर्नुहोस्", en: "View All Work" } satisfies L,
 };
 
 /**

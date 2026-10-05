@@ -25,7 +25,7 @@ export function ButtonLink({ href, variant = "solid", external, className, onCli
       onClick={onClick}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className={cn(
-        "group inline-flex items-center gap-2 rounded-sm px-6 py-3.5 text-[15px] font-medium transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:shadow-none",
+        "group inline-flex h-12 items-center justify-center gap-2 rounded-lg px-6 text-[15px] font-medium transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:shadow-none",
         variants[variant],
         className,
       )}

@@ -4,8 +4,8 @@ export const site = {
   name: { np: "बिक्रम खनाल", en: "Bikram Khanal" } satisfies L,
   honorific: { np: "माननीय", en: "Hon." } satisfies L,
   designation: {
-    np: "सदस्य, प्रतिनिधि सभा — नवलपरासी-१",
-    en: "Member, House of Representatives — Nawalparasi-1",
+    np: "सदस्य, प्रतिनिधि सभा - नवलपरासी-१",
+    en: "Member, House of Representatives - Nawalparasi-1",
   } satisfies L,
   party: { np: "राष्ट्रिय स्वतन्त्र पार्टी", en: "Rastriya Swatantra Party" } satisfies L,
   constituency: {

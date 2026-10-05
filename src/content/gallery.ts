@@ -7,7 +7,6 @@ export const galleryCopy = {
     np: "सार्वजनिक भेला, सामुदायिक भ्रमण, कार्यक्रम र काम पछाडिका मानिसहरूको झलक।",
     en: "A look at public meetings, community visits, events and the people behind the work.",
   } satisfies L,
-  viewAll: { np: "पूरा तस्बिर संग्रह हेर्नुहोस्", en: "View Full Gallery" } satisfies L,
   close: { np: "बन्द गर्नुहोस्", en: "Close" } satisfies L,
 };
 

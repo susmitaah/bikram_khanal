@@ -4,7 +4,7 @@ import { images } from "@/lib/images";
 export const newsCopy = {
   title: { np: "समाचार र अद्यावधिक", en: "News & Updates" } satisfies L,
   intro: {
-    np: "विज्ञप्ति, सामुदायिक कभरेज र सञ्चारमाध्यमका उल्लेख — एकै ठाउँमा।",
+    np: "विज्ञप्ति, सामुदायिक कभरेज र सञ्चारमाध्यमका उल्लेख, एकै ठाउँमा।",
     en: "Statements, community coverage and press mentions, gathered in one place.",
   } satisfies L,
   viewAll: { np: "सबै समाचार हेर्नुहोस्", en: "View All News" } satisfies L,

@@ -51,7 +51,7 @@ export function ContactForm() {
   const errorMessage = errorCode && copy.form.errors[errorCode] ? t(copy.form.errors[errorCode]) : t(copy.form.error);
 
   const fieldClass =
-    "w-full rounded-sm border border-rule bg-cream px-3.5 py-2.5 text-charcoal transition-colors placeholder:text-charcoal-mute hover:border-charcoal-mute focus:border-navy focus:outline-none";
+    "w-full rounded-lg border border-rule bg-paper px-3.5 py-3 text-charcoal transition-colors placeholder:text-charcoal-mute hover:border-charcoal-mute focus:border-navy focus:outline-none focus:ring-4 focus:ring-navy/10";
 
   return (
     <form onSubmit={onSubmit} className="space-y-4">
@@ -82,7 +82,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex items-center gap-2 rounded-sm bg-maroon px-6 py-3.5 text-[15px] font-medium text-cream shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-maroon-deep hover:shadow-md active:translate-y-0 active:shadow-none disabled:pointer-events-none disabled:opacity-60"
+          className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-maroon px-6 text-[15px] font-medium text-cream shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-maroon-deep hover:shadow-md active:translate-y-0 active:shadow-none disabled:pointer-events-none disabled:opacity-60"
         >
           {status === "sending" ? t(copy.form.sending) : t(copy.form.submit)}
         </button>

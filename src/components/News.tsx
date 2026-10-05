@@ -56,10 +56,10 @@ export function News() {
   const liveLabel = { np: "समाचार", en: "News" } as const;
 
   return (
-    <section id="news" className="border-b border-rule bg-cream py-16 sm:py-24">
+    <section id="news" className="border-b border-rule bg-cream py-20 sm:py-28">
       <Container>
         <div className="grid gap-14 lg:grid-cols-12">
-          <div className="lg:col-span-4">
+          <div className="lg:sticky lg:top-28 lg:col-span-4 lg:self-start">
             <SectionHeading title={t(newsCopy.title)}>
               <p>{t(newsCopy.intro)}</p>
             </SectionHeading>
@@ -69,7 +69,7 @@ export function News() {
               rel="noopener noreferrer"
               className="group mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy hover:text-maroon"
             >
-              {t(newsCopy.viewAll)} <ArrowRight size={15} strokeWidth={1.5} className="transition-transform group-hover:translate-x-1" />
+              {t(newsCopy.viewAll)} <ArrowRight size={15} strokeWidth={1.75} className="transition-transform group-hover:translate-x-1" />
             </a>
           </div>
 

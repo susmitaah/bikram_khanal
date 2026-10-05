@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
-import { ArrowRight, X } from "lucide-react";
+import { X } from "lucide-react";
 import { gallery, galleryCopy, type GalleryItem } from "@/content/gallery";
 import { useLang } from "@/i18n/useLang";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { cn } from "@/lib/cn";
+import { Reveal } from "@/components/ui/Reveal";
 
 export function Gallery() {
   const { t } = useLang();
@@ -20,7 +21,7 @@ export function Gallery() {
   };
 
   return (
-    <section id="gallery" className="border-b border-rule-on-navy bg-navy py-24 text-cream sm:py-32">
+    <section id="gallery" className="border-b border-rule-on-navy bg-navy py-20 text-cream sm:py-28">
       <Container>
         <SectionHeading tone="onNavy" title={t(galleryCopy.title)} align="center">
           <p>{t(galleryCopy.intro)}</p>
@@ -28,7 +29,7 @@ export function Gallery() {
 
         <div className="mt-14 grid auto-rows-40 grid-cols-2 gap-4 sm:auto-rows-48 md:grid-cols-4">
           {gallery.map((item, i) => (
-            <div key={item.src + i} className={cn(item.tall && "row-span-2")}>
+            <Reveal key={item.src + i} delay={(i % 4) * 80} className={cn(item.tall && "row-span-2")}>
               <button
                 type="button"
                 onClick={() => open(item)}
@@ -49,14 +50,8 @@ export function Gallery() {
                   {t(item.caption)}
                 </span>
               </button>
-            </div>
+            </Reveal>
           ))}
-        </div>
-
-        <div className="mt-10 text-center">
-          <a href="#gallery" className="group inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-cream">
-            {t(galleryCopy.viewAll)} <ArrowRight size={15} strokeWidth={1.5} className="transition-transform group-hover:translate-x-1" />
-          </a>
         </div>
       </Container>
 
@@ -78,7 +73,7 @@ export function Gallery() {
               className="absolute right-2 top-2 rounded-full bg-navy/70 p-2 text-cream transition-colors hover:bg-navy"
               aria-label={t(galleryCopy.close)}
             >
-              <X size={18} strokeWidth={1.5} />
+              <X size={18} strokeWidth={1.75} />
             </button>
           </figure>
         )}

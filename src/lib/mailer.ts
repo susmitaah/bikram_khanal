@@ -51,7 +51,7 @@ export async function sendContactMessage(payload: ContactPayload) {
     to,
     // object form lets nodemailer escape the name safely (quotes, commas, etc.
     // in whatever a visitor typed) instead of hand-building the header string
-    from: { name: `${payload.name} — Public Concern`, address: from },
+    from: { name: `${payload.name} - Public Concern`, address: from },
     replyTo: { name: payload.name, address: payload.email },
     subject: `[Public Concern] ${subjectLine}`,
     text: [

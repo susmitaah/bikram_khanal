@@ -45,7 +45,7 @@ export function Hero() {
             <div className="mt-10 flex flex-wrap gap-4">
               <ButtonLink href="#journey">
                 {t(heroCopy.ctaJourney)}{" "}
-                <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" />
+                <ArrowRight size={17} strokeWidth={1.75} className="transition-transform group-hover:translate-x-1" />
               </ButtonLink>
               <ButtonLink href="#work" variant="ghost-light">
                 {t(heroCopy.ctaWork)}

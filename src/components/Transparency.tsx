@@ -44,10 +44,10 @@ export function Transparency() {
   const money = (amount?: number) =>
     amount
       ? `${t(copy.rsLabel)} ${num((amount / 100000).toLocaleString("en-IN", { maximumFractionDigits: 1 }))} ${t(copy.lakh)}`
-      : "—";
+      : "-";
 
   return (
-    <section id="transparency" className="border-b border-rule bg-cream-deep py-16 sm:py-24">
+    <section id="transparency" className="border-b border-rule bg-cream py-20 sm:py-28">
       <Container>
         <SectionHeading title={t(copy.title)}>
           <p className="border-l-2 border-maroon pl-4 font-display text-xl italic text-navy">“{t(copy.motto)}”</p>
@@ -59,7 +59,7 @@ export function Transparency() {
             <span className="sr-only">{t(copy.search)}</span>
             <Search
               size={17}
-              strokeWidth={1.5}
+              strokeWidth={1.75}
               className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-charcoal-mute"
             />
             <input
@@ -67,7 +67,7 @@ export function Transparency() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder={t(copy.search)}
-              className="w-full rounded-sm border border-rule bg-cream py-2.5 pl-10 pr-3 transition-colors placeholder:text-charcoal-mute hover:border-charcoal-mute focus:border-navy focus:outline-none"
+              className="w-full rounded-lg border border-rule bg-paper py-2.5 pl-10 pr-3 transition-colors placeholder:text-charcoal-mute hover:border-charcoal-mute focus:border-navy focus:outline-none"
             />
           </label>
 
@@ -98,7 +98,7 @@ export function Transparency() {
         </div>
 
         {rows.length === 0 ? (
-          <p className="border border-dashed border-rule bg-cream px-6 py-12 text-center text-charcoal-soft">
+          <p className="border border-dashed border-rule bg-paper px-6 py-12 text-center text-charcoal-soft">
             {t(copy.empty)}
           </p>
         ) : (
@@ -119,7 +119,7 @@ function ProjectTable({ rows, money }: RowsProps) {
   const cols = copy.columns;
 
   return (
-    <div className="hidden overflow-x-auto rounded-xl border border-rule bg-cream md:block">
+    <div className="hidden overflow-x-auto rounded-xl border border-rule bg-paper shadow-card md:block">
       <table className="w-full border-collapse text-left">
         <thead>
           <tr className="border-b-2 border-navy text-sm text-charcoal-soft">
@@ -167,7 +167,7 @@ function ProjectCards({ rows, money }: RowsProps) {
   return (
     <ul className="grid gap-4 md:hidden">
       {rows.map((p) => (
-        <li key={p.id} className="rounded-xl border border-rule bg-cream p-4">
+        <li key={p.id} className="rounded-xl border border-rule bg-paper p-4 shadow-card">
           <div className="flex items-start justify-between gap-3">
             <p className="font-medium text-charcoal">{t(p.name)}</p>
             <StatusBadge status={p.status} />
@@ -224,7 +224,7 @@ function FilterSelect({ label, value, onChange, options }: FilterSelectProps) {
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className={cn(
-          "rounded-sm border bg-cream px-2.5 py-2 text-charcoal transition-colors hover:border-charcoal-mute focus:border-navy focus:outline-none",
+          "rounded-lg border bg-paper px-3 py-2.5 text-charcoal transition-colors hover:border-charcoal-mute focus:border-navy focus:outline-none",
           value === "all" ? "border-rule" : "border-maroon",
         )}
       >

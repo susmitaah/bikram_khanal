@@ -102,7 +102,7 @@ export function Navbar() {
               scrolled || open ? "text-navy hover:bg-cream-deep" : "text-cream hover:bg-cream/10",
             )}
           >
-            {open ? <X size={22} strokeWidth={1.5} /> : <Menu size={22} strokeWidth={1.5} />}
+            {open ? <X size={22} strokeWidth={1.75} /> : <Menu size={22} strokeWidth={1.75} />}
           </button>
         </div>
       </Container>

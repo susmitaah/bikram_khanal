@@ -41,8 +41,8 @@ export const contactCopy = {
     submit: { np: "सन्देश पठाउनुहोस्", en: "Send Message" } satisfies L,
     sending: { np: "पठाउँदै...", en: "Sending…" } satisfies L,
     success: {
-      np: "धन्यवाद — तपाईंको सन्देश पठाइयो।",
-      en: "Thank you — your message has been sent.",
+      np: "धन्यवाद, तपाईंको सन्देश पठाइयो।",
+      en: "Thank you, your message has been sent.",
     } satisfies L,
     error: {
       np: "केही समस्या भयो। फेरि प्रयास गर्नुहोस् वा सिधै सम्पर्क गर्नुहोस्।",
@@ -58,13 +58,13 @@ export const contactCopy = {
         en: "Please enter a valid email address.",
       },
       invalid_message: {
-        np: "सन्देश धेरै छोटो छ — कम्तीमा १० अक्षर लेख्नुहोस्।",
-        en: "Message is too short — please write at least 10 characters.",
+        np: "सन्देश धेरै छोटो छ। कम्तीमा १० अक्षर लेख्नुहोस्।",
+        en: "Message is too short. Please write at least 10 characters.",
       },
       message_too_long: { np: "सन्देश धेरै लामो छ।", en: "Message is too long." },
       rate_limited: {
         np: "धेरै पटक प्रयास गर्नुभयो। केही समयपछि फेरि प्रयास गर्नुहोस्।",
-        en: "Too many attempts — please wait a moment and try again.",
+        en: "Too many attempts. Please wait a moment and try again.",
       },
     } as Record<string, L>,
   },

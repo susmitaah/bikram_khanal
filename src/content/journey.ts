@@ -32,7 +32,7 @@ export const journey: Array<{ year: L; title: L; description: L }> = [
   },
   {
     year: { np: "२०८२ साल / २०२६", en: "2082 BS / 2026" },
-    title: { np: "निर्वाचित — नवलपरासी-१", en: "Elected — Nawalparasi-1" },
+    title: { np: "निर्वाचित - नवलपरासी-१", en: "Elected - Nawalparasi-1" },
     description: {
       np: "४५,२४१ मतका साथ प्रतिनिधि सभा सिट जित्नुभयो; २०२६ मार्च २६ मा पदभार सम्हाल्नुभयो।",
       en: "Won the House of Representatives seat with 45,241 votes; took office 26 March 2026.",

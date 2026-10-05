@@ -5,7 +5,7 @@ import type { L } from "@/i18n/useLang";
 export const statsCopy = {
   title: { np: "जनसेवामा बितेको जीवन", en: "A life in public service" } satisfies L,
   intro: {
-    np: "संविधान सभादेखि प्रतिनिधि सभासम्म — नवलपरासी-१ का जनताका लागि निरन्तर उपस्थित रहेको यात्रा।",
+    np: "संविधान सभादेखि प्रतिनिधि सभासम्म, नवलपरासी-१ का जनताका लागि निरन्तर उपस्थित रहेको यात्रा।",
     en: "From the Constituent Assembly to the House of Representatives, a record built on showing up for Nawalparasi-1.",
   } satisfies L,
 };
@@ -30,7 +30,7 @@ export const stats: Array<{ icon: LucideIcon; value: L; label: L }> = [
   {
     icon: Landmark,
     value: { np: "२०७० साल", en: "2070 BS" },
-    label: { np: "संविधान सभामा पहिलोपटक निर्वाचित", en: "First elected — Constituent Assembly" },
+    label: { np: "संविधान सभामा पहिलोपटक निर्वाचित", en: "First elected, Constituent Assembly" },
   },
   {
     icon: CalendarDays,

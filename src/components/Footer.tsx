@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { nav, site, socials } from "@/content/site";
 import { useLang } from "@/i18n/useLang";
 import { Container } from "@/components/ui/Container";
@@ -11,9 +12,12 @@ export function Footer() {
   const { t, num, lang } = useLang();
 
   return (
-    <footer className="bg-navy pt-12 text-cream/75">
-      <Container className="flex flex-col gap-8 pb-10 md:flex-row md:items-center md:justify-between">
+    <footer className="border-t-2 border-gold/50 bg-navy pt-16 text-cream/75">
+      <Container className="flex flex-col gap-8 pb-12 md:flex-row md:items-center md:justify-between">
         <div>
+          <span aria-hidden className="bell-swing-host mb-5 grid size-14 place-items-center rounded-xl bg-paper ring-1 ring-gold/40">
+            <Image src="/images/rsp-bell.png" alt="" width={160} height={150} className="bell-swing h-auto w-10 mix-blend-multiply" />
+          </span>
           <a href="#home" className="inline-block font-display text-2xl font-semibold text-cream transition-opacity hover:opacity-80">
             {t(site.honorific)} {t(site.name)}
             {lang === "en" && <span className="font-devanagari ml-2 text-gold/80">बिक्रम खनाल</span>}
@@ -53,15 +57,6 @@ export function Footer() {
           <p>
             © {num(String(new Date().getFullYear()))} {t(site.name)}. {t({ np: "सर्वाधिकार सुरक्षित।", en: "All rights reserved." })}
           </p>
-          {/* subtle Nepali-inspired geometric border pattern */}
-          <svg aria-hidden viewBox="0 0 240 12" className="h-3 w-40 text-gold/40">
-            <path
-              d="M0 6h20l4-6 4 6 4-6 4 6h20l4-6 4 6 4-6 4 6h20l4-6 4 6 4-6 4 6h20l4-6 4 6 4-6 4 6h20l4-6 4 6 4-6 4 6h20l4-6 4 6 4-6 4 6h20"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1"
-            />
-          </svg>
         </Container>
       </div>
     </footer>
